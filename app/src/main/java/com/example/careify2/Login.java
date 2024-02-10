@@ -2,6 +2,7 @@ package com.example.careify2;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -18,7 +19,7 @@ public class Login extends AppCompatActivity {
         loginButton = (Button) findViewById(R.id.loginButton);
         loginButton.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
-                Toast.makeText(Login.this, "It Works!", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(Login.this, Category.class));          //MAGIC CODE
             }
         });
     }
