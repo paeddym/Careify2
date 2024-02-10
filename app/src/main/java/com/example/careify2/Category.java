@@ -28,6 +28,11 @@ public class Category extends AppCompatActivity {
                 startActivity(new Intent(Category.this, AddCategory.class));          //MAGIC CODE
             }
         });
+
+        if (getSupportActionBar() != null){
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setDisplayShowHomeEnabled(true);
+        }
     }
 
     @Override
@@ -40,13 +45,17 @@ public class Category extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-        if (id == R.id.app_bar_settings) {
-            Snackbar.make(findViewById(android.R.id.content), "Action", Snackbar.LENGTH_SHORT).show();
+        if (id == R.id.app_bar_search) {
+            Snackbar.make(findViewById(android.R.id.content), "To be implemented", Snackbar.LENGTH_SHORT).show();
             return true;
         }
-        if (id == R.id.app_bar_search) {
-            Snackbar.make(findViewById(android.R.id.content), "Info", Snackbar.LENGTH_SHORT).show();
+        if (id == R.id.app_bar_settings) {
+            Snackbar.make(findViewById(android.R.id.content), "To be implemented", Snackbar.LENGTH_SHORT).show();
             return true;
+        }
+
+        if (id == android.R.id.home) {
+            startActivity(new Intent(Category.this, Login.class));
         }
         return super.onOptionsItemSelected(item);
     }
