@@ -9,8 +9,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toolbar;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
 public class Category extends AppCompatActivity {
@@ -20,6 +20,14 @@ public class Category extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_category);
         setSupportActionBar(findViewById(R.id.toolbarCategory));        //MAGIC CODE
+
+        FloatingActionButton fab;
+        fab = (FloatingActionButton) findViewById(R.id.floatingActionButtonCategory);
+        fab.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View view){
+                startActivity(new Intent(Category.this, AddCategory.class));          //MAGIC CODE
+            }
+        });
     }
 
     @Override
