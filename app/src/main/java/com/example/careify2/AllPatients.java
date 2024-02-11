@@ -39,9 +39,9 @@ public class AllPatients extends AppCompatActivity implements RecyclerViewInterf
     private CollectionReference collectionReference = db.collection("Facility").document("Paulinenstift")
             .collection("Category").document("1OG").collection("Patient");
 
-    private ArrayList<String> allPatientsAsList = new ArrayList<>();
 
-    private String[] allPatientsAsArray;
+
+    private String[] allPatients;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,21 +49,7 @@ public class AllPatients extends AppCompatActivity implements RecyclerViewInterf
         setContentView(R.layout.activity_all_patients);
         setSupportActionBar(findViewById(R.id.toolbarAllPatients));
 
-        RecyclerView recyclerView = findViewById(R.id.Patients);
-
-        allPatientsAsList = loadPatientNames(collectionReference);
-
-        allPatientsAsArray = new String[allPatientsAsList.size()];
-        allPatientsAsList.toArray(allPatientsAsArray);
-
-        Log.d("ARRAYLIST", "Length: " + allPatientsAsList.size());
-
-        setPatientModels(/*getResources().getStringArray(R.array.patient_names)*/allPatientsAsArray);
-
-        Patient_RecyclerViewAdapter adapter = new Patient_RecyclerViewAdapter(this, patientModels, this);
-
-        recyclerView.setAdapter(adapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        loadPatientNames(collectionReference);
 
         String CategoryName = getIntent().getStringExtra("CategoryName");
 
@@ -83,16 +69,27 @@ public class AllPatients extends AppCompatActivity implements RecyclerViewInterf
         getSupportActionBar().setTitle(CategoryName);
     }
 
-    private ArrayList<String> loadPatientNames(CollectionReference collectionReference){
-        ArrayList<String> temp = new ArrayList<>();
+    private void loadPatientNames(CollectionReference collectionReference){
         collectionReference.get()
                 .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                     @Override
                     public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                        int i = 0;
                         for(QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots){
-                            temp.add(documentSnapshot.getString(KEY_NAME));
+                            i++;
+                        }
+                        allPatients = new String[i];
+                        i = 0;
+                        for(QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots){
+                            allPatients[i] = documentSnapshot.getString(KEY_NAME);
+                            i++;
                         }
                         Toast.makeText(AllPatients.this, "Loaded Patients!", Toast.LENGTH_SHORT).show();
+                        setPatientModels(allPatients);
+                        RecyclerView recyclerView = findViewById(R.id.Patients);
+                        Patient_RecyclerViewAdapter adapter = new Patient_RecyclerViewAdapter(AllPatients.this, patientModels, AllPatients.this);
+                        recyclerView.setAdapter(adapter);
+                        recyclerView.setLayoutManager(new LinearLayoutManager(AllPatients.this));
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
@@ -101,7 +98,6 @@ public class AllPatients extends AppCompatActivity implements RecyclerViewInterf
                         Toast.makeText(AllPatients.this, "Failed to load Patients!", Toast.LENGTH_SHORT).show();
                     }
                 });
-        return temp;
     }
 
     private void setPatientModels(String[] patients){
