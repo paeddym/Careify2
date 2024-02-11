@@ -26,7 +26,7 @@
         tools:layout_editor_absoluteY="16dp" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/imgPatient"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         tools:layout_editor_absoluteX="26dp"
@@ -34,7 +34,7 @@
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/patientNameText"
         android:layout_width="60dp"
         android:layout_height="24dp"
         android:text="Name:"
@@ -44,7 +44,7 @@
         tools:layout_editor_absoluteY="99dp" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/patientNameText"
         android:layout_width="60dp"
         android:layout_height="24dp"
         android:text="Raum:"
@@ -54,7 +54,7 @@
         tools:layout_editor_absoluteY="246dp" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/patientNameText"
         android:layout_width="60dp"
         android:layout_height="24dp"
         android:text="Alter:"
@@ -64,7 +64,7 @@
         tools:layout_editor_absoluteY="157dp" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/patientNameText"
         android:layout_width="100dp"
         android:layout_height="22dp"
         android:text="Behinderungen"
@@ -74,7 +74,7 @@
         tools:layout_editor_absoluteY="300dp" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/patientNameText"
         android:layout_width="115dp"
         android:layout_height="24dp"
         android:text="Medikamente"

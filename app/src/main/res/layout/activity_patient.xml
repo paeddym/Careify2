@@ -7,7 +7,7 @@
     tools:context=".Patient">
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/imgPatient"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -17,7 +17,7 @@
         tools:srcCompat="@tools:sample/avatars" />
 
     <EditText
-        android:id="@+id/editTextText8"
+        android:id="@+id/patientMedication"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="144dp"
@@ -31,7 +31,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/patientRoomText"
         android:layout_width="60dp"
         android:layout_height="24dp"
         android:layout_marginStart="40dp"
@@ -43,7 +43,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/patientDiagnosisText"
         android:layout_width="100dp"
         android:layout_height="22dp"
         android:layout_marginStart="24dp"
@@ -55,7 +55,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextText6"
+        android:id="@+id/patientName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="92dp"
@@ -69,17 +69,19 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/patientAgeText"
         android:layout_width="60dp"
         android:layout_height="24dp"
+        android:layout_marginStart="172dp"
+        android:layout_marginTop="156dp"
         android:text="Alter:"
         android:textColor="#000000"
         android:textSize="16sp"
-        tools:layout_editor_absoluteX="175dp"
-        tools:layout_editor_absoluteY="157dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextText6"
+        android:id="@+id/patientAge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="148dp"
@@ -93,7 +95,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/patientMedicationText"
         android:layout_width="115dp"
         android:layout_height="24dp"
         android:layout_marginStart="16dp"
@@ -105,7 +107,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/patientNameText"
         android:layout_width="60dp"
         android:layout_height="24dp"
         android:layout_marginTop="104dp"
@@ -118,7 +120,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextText7"
+        android:id="@+id/patientDiagnosis"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="144dp"
@@ -132,7 +134,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextText6"
+        android:id="@+id/patientRoom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="144dp"
@@ -152,8 +154,6 @@
         android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
