@@ -49,14 +49,6 @@ public class Category extends AppCompatActivity implements RecyclerViewInterface
             getSupportActionBar().setDisplayShowHomeEnabled(true);
         }
 
-        Button testButton;
-        testButton = (Button) findViewById(R.id.testButtonToAllPatients);
-        testButton.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View view){
-                startActivity(new Intent(Category.this, AllPatients.class));          //MAGIC CODE
-            }
-        });
-
         getSupportActionBar().setTitle(R.string.category);
     }
 
@@ -95,6 +87,6 @@ public class Category extends AppCompatActivity implements RecyclerViewInterface
 
     @Override
     public void onCardClick(int position) {
-
+        startActivity(new Intent(Category.this, AllPatients.class));
     }
 }
