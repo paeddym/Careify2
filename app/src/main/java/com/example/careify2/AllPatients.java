@@ -63,7 +63,7 @@ public class AllPatients extends AppCompatActivity {
         }
 
         if (id == android.R.id.home) {
-            startActivity(new Intent(AllPatients.this, Patient.class));
+            startActivity(new Intent(AllPatients.this, Category.class));
         }
         return super.onOptionsItemSelected(item);
     }
