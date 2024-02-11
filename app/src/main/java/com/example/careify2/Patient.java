@@ -1,13 +1,10 @@
 package com.example.careify2;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-
 import com.google.android.material.snackbar.Snackbar;
 
 public class Patient extends AppCompatActivity {
