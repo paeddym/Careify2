@@ -2,15 +2,22 @@
     <string name="app_name">Careify2</string>
     <string name="to_be_implemented">To be implemented!</string>
     <string name="testButton">Testbutton</string>
+
     <string name="login">Anmelden</string>
     <string name="facility">Einrichtung</string>
     <string name="password">Passwort</string>
+    <string name="enter_facility">Einrichtung eingeben</string>
+    <string name="enter_password">Passwort eingeben</string>
+
+
     <string name="add">Hinzufügen</string>
+
     <string name="name">Name</string>
     <string name="age">Alter</string>
     <string name="room">Raum</string>
     <string name="diagnosis">Diagnose</string>
     <string name="medication">Medikamente</string>
+
     <string name="category">Bereiche</string>
     <string name="add_category">Bereich hinzufügen</string>
     <string name="patients">Patienten</string>
