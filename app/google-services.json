@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "978352719648",
+    "project_id": "careify2",
+    "storage_bucket": "careify2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:978352719648:android:f46e0ac5ce8f7a48ed3945",
+        "android_client_info": {
+          "package_name": "com.example.careify2"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAX7UcrRQBH6TUOn5ulg3SLMrAHbHBIzOU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
