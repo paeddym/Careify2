@@ -40,6 +40,12 @@ public class Patient_RecyclerViewAdapter extends RecyclerView.Adapter<Patient_Re
         return patientModels.size();
     }
 
+    public void filteredList(ArrayList<PatientModel> filteredList){
+        patientModels = filteredList;
+        notifyDataSetChanged();
+
+    }
+
     public static class MyViewHolder extends RecyclerView.ViewHolder {
         TextView patientName;
         public MyViewHolder(@NonNull View itemView, RecyclerViewInterface recyclerViewInterface) {

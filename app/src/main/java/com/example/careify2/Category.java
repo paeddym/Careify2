@@ -11,6 +11,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.SearchView;
+import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
@@ -20,6 +22,7 @@ import java.util.ArrayList;
 public class Category extends AppCompatActivity implements RecyclerViewInterface {
 
     ArrayList<CategoryModel> categoryModels = new ArrayList<>();
+    Category_RecyclerViewAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +34,7 @@ public class Category extends AppCompatActivity implements RecyclerViewInterface
 
         setCategoryModels();
 
-        Category_RecyclerViewAdapter adapter = new Category_RecyclerViewAdapter(this, categoryModels, this);
+        adapter = new Category_RecyclerViewAdapter(this, categoryModels, this);
 
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -52,19 +55,49 @@ public class Category extends AppCompatActivity implements RecyclerViewInterface
         getSupportActionBar().setTitle(R.string.category);
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+        getMenuInflater().inflate(R.menu.search_menu, menu);
+
+        MenuItem menuItem = menu.findItem(R.id.app_bar_search);
+        SearchView searchView = (SearchView) menuItem.getActionView();
+        searchView.setQueryHint("Type here");
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                filter(newText.toString());
+
+                return true;
+            }
+        });
+
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    private void filter(String text) {
+        ArrayList<CategoryModel> filteredList = new ArrayList<>();
+
+        for(CategoryModel model : categoryModels){
+            if(model.BereichName.toLowerCase().contains(text.toLowerCase())){
+                filteredList.add(model);
+            }
+        }
+        adapter.filteredList(filteredList);
+
+    }
+
     private void setCategoryModels(){
         String[] categoryNames = getResources().getStringArray(R.array.bereich_names);
 
         for (int i=0; i<categoryNames.length; i++){
             categoryModels.add(new CategoryModel(categoryNames[i]));
         }
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.search_menu, menu);
-        return true;
     }
 
     @Override

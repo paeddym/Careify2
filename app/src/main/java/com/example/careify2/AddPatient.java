@@ -84,6 +84,7 @@ public class AddPatient extends AppCompatActivity {
                     @Override
                     public void onFailure(@NonNull Exception e) {
                         Toast.makeText(AddPatient.this, "Failure!", Toast.LENGTH_SHORT).show();
+                        Log.d("TEST", e.toString());
                     }
                 });
     }
