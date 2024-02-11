@@ -13,6 +13,9 @@
         android:theme="@style/Theme.Careify2"
         tools:targetApi="31">
         <activity
+            android:name=".AllPatients"
+            android:exported="false" />
+        <activity
             android:name=".Login"
             android:exported="true">
             <intent-filter>
