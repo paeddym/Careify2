@@ -1,6 +1,8 @@
 package com.example.careify2;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,13 +15,26 @@ import android.widget.Button;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
+import java.util.ArrayList;
+
 public class Category extends AppCompatActivity {
+
+    ArrayList<CategoryModel> categoryModels = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_category);
         setSupportActionBar(findViewById(R.id.toolbarCategory));        //MAGIC CODE
+
+        RecyclerView recyclerView = findViewById(R.id.Bereiche);
+
+        setCategoryModels();
+
+        Category_RecyclerViewAdapter adapter = new Category_RecyclerViewAdapter(this, categoryModels);
+
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         FloatingActionButton fab;
         fab = (FloatingActionButton) findViewById(R.id.floatingActionButtonCategory);
@@ -43,6 +58,14 @@ public class Category extends AppCompatActivity {
         });
 
         getSupportActionBar().setTitle(R.string.category);
+    }
+
+    private void setCategoryModels(){
+        String[] categoryNames = getResources().getStringArray(R.array.bereich_names);
+
+        for (int i=0; i<categoryNames.length; i++){
+            categoryModels.add(new CategoryModel(categoryNames[i]));
+        }
     }
 
     @Override

@@ -29,4 +29,11 @@
     <string name="enter_room">Raum eingeben</string>
     <string name="enter_medication">Medikamente eingeben</string>
     <string name="enter_diagnosis">Diagnose eingeben</string>
+
+    <string-array name="bereich_names">
+        <item>Schillerstraße</item>
+        <item>Schwabstraße</item>
+        <item>Seeblick</item>
+
+    </string-array>
 </resources>
