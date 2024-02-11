@@ -1,16 +1,43 @@
 package com.example.careify2;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class AddPatient extends AppCompatActivity {
+
+    private static final String TAG = "AddPatient";
+    private static final String KEY_NAME = "Name";
+    private static final String KEY_AGE = "Alter";
+    private static final String KEY_ROOM = "Raum";
+    private static final String KEY_DIAGNOSIS = "Diagnose";
+    private static final String KEY_MEDICATION = "Medikation";
+
+    private EditText editTextName;
+    private EditText editTextAge;
+    private EditText editTextRoom;
+    private EditText editTextDiagnosis;
+    private EditText editTextMedication;
+
+    private FirebaseFirestore db = FirebaseFirestore.getInstance();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,8 +51,44 @@ public class AddPatient extends AppCompatActivity {
         }
 
         getSupportActionBar().setTitle(R.string.add_patient);
+
+        editTextName = findViewById(R.id.addPatientName);
+        editTextAge = findViewById(R.id.addPatientAge);
+        editTextRoom = findViewById(R.id.addPatientRoom);
+        editTextDiagnosis = findViewById(R.id.addPatientDiagnosis);
+        editTextMedication = findViewById(R.id.addPatientMedication);
     }
 
+    public void savePatient (View v){
+        String name = editTextName.getText().toString();
+        String age = editTextAge.getText().toString();
+        String room = editTextRoom.getText().toString();
+        String diagnosis = editTextDiagnosis.getText().toString();
+        String medication = editTextMedication.getText().toString();
+
+        Map<String, Object> patient = new HashMap<>();
+        patient.put(KEY_NAME, name);
+        patient.put(KEY_AGE, age);
+        patient.put(KEY_ROOM, room);
+        patient.put(KEY_DIAGNOSIS, diagnosis);
+        patient.put(KEY_MEDICATION, medication);
+
+        db.collection("Facility").document("Paulinenstift")
+                .collection("Category").document("1OG")
+                .collection("Patient").document(name).set(patient)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+                        Toast.makeText(AddPatient.this, "Success!", Toast.LENGTH_SHORT).show();
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(AddPatient.this, "Failure!", Toast.LENGTH_SHORT).show();
+                        Log.d(TAG, e.toString());
+                    }
+                });
+    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();

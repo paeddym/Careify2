@@ -1,5 +1,6 @@
 package com.example.careify2;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -7,8 +8,20 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firestore.v1.WriteResult;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class AddCategory extends AppCompatActivity {
 
@@ -24,6 +37,12 @@ public class AddCategory extends AppCompatActivity {
         }
 
         getSupportActionBar().setTitle(R.string.add_category);
+
+        findViewById(R.id.addCategoryButton).setOnClickListener(new View.OnClickListener(){
+            public void onClick(View view){
+                Toast.makeText(AddCategory.this, R.string.to_be_implemented, Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     @Override
