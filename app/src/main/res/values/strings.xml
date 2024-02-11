@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Careify2</string>
+    <string name="patient_name">Name:</string>
+    <string name="patient_age">Alter:</string>
+    <string name="patient_room">Raum:</string>
+    <string name="patient_diagnosis">Diagnose:</string>
+    <string name="patient_medication">Medikamente:</string>
+    <string name="to_be_implemented">To be implemented!</string>
+
 </resources>
