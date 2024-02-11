@@ -22,6 +22,8 @@ public class AddCategory extends AppCompatActivity {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             getSupportActionBar().setDisplayShowHomeEnabled(true);
         }
+
+        getSupportActionBar().setTitle("Bereich hinzufügen");
     }
 
     @Override

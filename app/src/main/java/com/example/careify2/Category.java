@@ -41,6 +41,8 @@ public class Category extends AppCompatActivity {
                 startActivity(new Intent(Category.this, AllPatients.class));          //MAGIC CODE
             }
         });
+
+        getSupportActionBar().setTitle("Bereiche");
     }
 
     @Override

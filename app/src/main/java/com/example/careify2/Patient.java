@@ -19,6 +19,8 @@ public class Patient extends AppCompatActivity {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             getSupportActionBar().setDisplayShowHomeEnabled(true);
         }
+
+        getSupportActionBar().setTitle("Patient");
     }
 
     @Override

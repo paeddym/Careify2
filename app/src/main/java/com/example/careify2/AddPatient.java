@@ -22,6 +22,8 @@ public class AddPatient extends AppCompatActivity {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             getSupportActionBar().setDisplayShowHomeEnabled(true);
         }
+
+        getSupportActionBar().setTitle("Neuer Patient");
     }
 
     @Override

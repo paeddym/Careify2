@@ -41,6 +41,8 @@ public class AllPatients extends AppCompatActivity {
                 startActivity(new Intent(AllPatients.this, Patient.class));          //MAGIC CODE
             }
         });
+
+        getSupportActionBar().setTitle("Patienten");
     }
 
     @Override
