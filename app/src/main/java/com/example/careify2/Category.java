@@ -33,6 +33,14 @@ public class Category extends AppCompatActivity {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             getSupportActionBar().setDisplayShowHomeEnabled(true);
         }
+
+        Button testButton;
+        testButton = (Button) findViewById(R.id.testButtonToAllPatients);
+        testButton.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View view){
+                startActivity(new Intent(Category.this, AllPatients.class));          //MAGIC CODE
+            }
+        });
     }
 
     @Override
