@@ -15,12 +15,14 @@ public class Patient extends AppCompatActivity {
         setContentView(R.layout.activity_patient);
         setSupportActionBar(findViewById(R.id.toolbarPatient));
 
+        String PatientName = getIntent().getStringExtra("PatientName");
+
         if (getSupportActionBar() != null){
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             getSupportActionBar().setDisplayShowHomeEnabled(true);
         }
 
-        getSupportActionBar().setTitle(R.string.patient);
+        getSupportActionBar().setTitle(PatientName);
     }
 
     @Override

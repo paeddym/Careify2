@@ -87,6 +87,8 @@ public class Category extends AppCompatActivity implements RecyclerViewInterface
 
     @Override
     public void onCardClick(int position) {
-        startActivity(new Intent(Category.this, AllPatients.class));
+        Intent intent = new Intent(Category.this, AllPatients.class);
+        intent.putExtra("CategoryName", categoryModels.get(position).getBereichName());
+        startActivity(intent);
     }
 }
