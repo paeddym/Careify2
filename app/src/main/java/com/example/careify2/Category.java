@@ -1,5 +1,6 @@
 package com.example.careify2;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -11,9 +12,16 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 
@@ -21,20 +29,22 @@ public class Category extends AppCompatActivity implements RecyclerViewInterface
 
     ArrayList<CategoryModel> categoryModels = new ArrayList<>();
 
+    private FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+    private static final String KEY_NAME = "Name";
+
+    private CollectionReference collectionReference = db.collection("Facility").document("Paulinenstift")
+            .collection("Category");
+
+    private String[] allCategories;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_category);
-        setSupportActionBar(findViewById(R.id.toolbarCategory));        //MAGIC CODE
+        setSupportActionBar(findViewById(R.id.toolbarCategory));
 
-        RecyclerView recyclerView = findViewById(R.id.Bereiche);
-
-        setCategoryModels();
-
-        Category_RecyclerViewAdapter adapter = new Category_RecyclerViewAdapter(this, categoryModels, this);
-
-        recyclerView.setAdapter(adapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        loadCategoryNames(collectionReference);
 
         FloatingActionButton fab;
         fab = (FloatingActionButton) findViewById(R.id.floatingActionButtonCategory);
@@ -52,11 +62,42 @@ public class Category extends AppCompatActivity implements RecyclerViewInterface
         getSupportActionBar().setTitle(R.string.category);
     }
 
-    private void setCategoryModels(){
-        String[] categoryNames = getResources().getStringArray(R.array.bereich_names);
+    public void loadCategoryNames(CollectionReference collectionReference){
+        collectionReference.get()
+                .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                    @Override
+                    public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                        int i = 0;
+                        for(QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots){
+                            i++;
+                        }
+                        allCategories = new String[i];
+                        i = 0;
+                        for(QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots){
+                            allCategories[i] = documentSnapshot.getString(KEY_NAME);
+                            i++;
+                        }
+                        Toast.makeText(Category.this, "Loaded Categories!", Toast.LENGTH_SHORT).show();
 
-        for (int i=0; i<categoryNames.length; i++){
-            categoryModels.add(new CategoryModel(categoryNames[i]));
+                        RecyclerView recyclerView = findViewById(R.id.Bereiche);
+                        setCategoryModels(allCategories);
+                        Category_RecyclerViewAdapter adapter = new Category_RecyclerViewAdapter(Category.this, categoryModels, Category.this);
+                        recyclerView.setAdapter(adapter);
+                        recyclerView.setLayoutManager(new LinearLayoutManager(Category.this));
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(Category.this, "Failed to load Categories!", Toast.LENGTH_SHORT).show();
+                    }
+                });
+    }
+
+    private void setCategoryModels(String[] categories){
+
+        for (int i=0; i<categories.length; i++){
+            categoryModels.add(new CategoryModel(categories[i]));
         }
     }
 
