@@ -20,7 +20,7 @@ public class Patient extends AppCompatActivity {
             getSupportActionBar().setDisplayShowHomeEnabled(true);
         }
 
-        getSupportActionBar().setTitle("Patient");
+        getSupportActionBar().setTitle(R.string.patient);
     }
 
     @Override

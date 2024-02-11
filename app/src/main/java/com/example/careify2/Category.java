@@ -42,7 +42,7 @@ public class Category extends AppCompatActivity {
             }
         });
 
-        getSupportActionBar().setTitle("Bereiche");
+        getSupportActionBar().setTitle(R.string.category);
     }
 
     @Override

@@ -23,7 +23,7 @@ public class AddPatient extends AppCompatActivity {
             getSupportActionBar().setDisplayShowHomeEnabled(true);
         }
 
-        getSupportActionBar().setTitle("Neuer Patient");
+        getSupportActionBar().setTitle(R.string.add_patient);
     }
 
     @Override

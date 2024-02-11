@@ -42,7 +42,7 @@ public class AllPatients extends AppCompatActivity {
             }
         });
 
-        getSupportActionBar().setTitle("Patienten");
+        getSupportActionBar().setTitle(R.string.patients);
     }
 
     @Override
