@@ -23,7 +23,6 @@ import java.util.Map;
 
 public class AddPatient extends AppCompatActivity {
 
-    private static final String TAG = "AddPatient";
     private static final String KEY_NAME = "Name";
     private static final String KEY_AGE = "Alter";
     private static final String KEY_ROOM = "Raum";
@@ -85,7 +84,6 @@ public class AddPatient extends AppCompatActivity {
                     @Override
                     public void onFailure(@NonNull Exception e) {
                         Toast.makeText(AddPatient.this, "Failure!", Toast.LENGTH_SHORT).show();
-                        Log.d(TAG, e.toString());
                     }
                 });
     }

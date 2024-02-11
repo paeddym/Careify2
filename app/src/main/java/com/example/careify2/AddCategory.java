@@ -9,6 +9,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -25,6 +26,12 @@ import java.util.Map;
 
 public class AddCategory extends AppCompatActivity {
 
+    private static final String KEY_NAME = "Name";
+
+    private EditText editTextName;
+
+    private FirebaseFirestore db = FirebaseFirestore.getInstance();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,9 +45,27 @@ public class AddCategory extends AppCompatActivity {
 
         getSupportActionBar().setTitle(R.string.add_category);
 
+        editTextName = findViewById(R.id.enterNewCategoryName);
+
         findViewById(R.id.addCategoryButton).setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
-                Toast.makeText(AddCategory.this, R.string.to_be_implemented, Toast.LENGTH_SHORT).show();
+                String name = editTextName.getText().toString();
+                Map<String, Object> category = new HashMap<>();
+                category.put(KEY_NAME, name);
+
+                db.collection("Facility").document("Paulinenstift")
+                        .collection("Category").document(name).set(category)
+                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void unused) {
+                                Toast.makeText(AddCategory.this, "Success!", Toast.LENGTH_SHORT).show();
+                            }
+                        }).addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                Toast.makeText(AddCategory.this, "Failure!", Toast.LENGTH_SHORT).show();
+                            }
+                        });
             }
         });
     }
