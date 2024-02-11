@@ -34,6 +34,11 @@
         <item>Schillerstraße</item>
         <item>Schwabstraße</item>
         <item>Seeblick</item>
+    </string-array>
 
+    <string-array name="patient_names">
+        <item>patrik1</item>
+        <item>patrik2</item>
+        <item>patrik3</item>
     </string-array>
 </resources>

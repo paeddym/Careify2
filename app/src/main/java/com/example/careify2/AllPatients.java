@@ -1,6 +1,8 @@
 package com.example.careify2;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,13 +15,26 @@ import android.widget.Button;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
-public class AllPatients extends AppCompatActivity {
+import java.util.ArrayList;
+
+public class AllPatients extends AppCompatActivity implements RecyclerViewInterface{
+
+    ArrayList<PatientModel> patientModels = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_all_patients);
         setSupportActionBar(findViewById(R.id.toolbarAllPatients));        //MAGIC CODE
+
+        RecyclerView recyclerView = findViewById(R.id.Patients);
+
+        setPatientModels();
+
+        Patient_RecyclerViewAdapter adapter = new Patient_RecyclerViewAdapter(this, patientModels, this);
+
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         FloatingActionButton fab;
         fab = (FloatingActionButton) findViewById(R.id.floatingActionButtonAllPatients);
@@ -34,15 +49,15 @@ public class AllPatients extends AppCompatActivity {
             getSupportActionBar().setDisplayShowHomeEnabled(true);
         }
 
-        Button testButton;
-        testButton = (Button) findViewById(R.id.testButtonToPatient);
-        testButton.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View view){
-                startActivity(new Intent(AllPatients.this, Patient.class));          //MAGIC CODE
-            }
-        });
-
         getSupportActionBar().setTitle(R.string.patients);
+    }
+
+    private void setPatientModels(){
+        String[] patientNames = getResources().getStringArray(R.array.patient_names);
+
+        for (int i=0; i<patientNames.length; i++){
+            patientModels.add(new PatientModel(patientNames[i]));
+        }
     }
 
     @Override
@@ -68,5 +83,10 @@ public class AllPatients extends AppCompatActivity {
             startActivity(new Intent(AllPatients.this, Category.class));
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onCardClick(int position) {
+        startActivity(new Intent(AllPatients.this, Patient.class));
     }
 }
