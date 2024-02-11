@@ -11,6 +11,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
@@ -36,6 +37,8 @@ public class AllPatients extends AppCompatActivity implements RecyclerViewInterf
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
+        String CategoryName = getIntent().getStringExtra("CategoryName");
+
         FloatingActionButton fab;
         fab = (FloatingActionButton) findViewById(R.id.floatingActionButtonAllPatients);
         fab.setOnClickListener(new View.OnClickListener(){
@@ -49,7 +52,7 @@ public class AllPatients extends AppCompatActivity implements RecyclerViewInterf
             getSupportActionBar().setDisplayShowHomeEnabled(true);
         }
 
-        getSupportActionBar().setTitle(R.string.patients);
+        getSupportActionBar().setTitle(CategoryName);
     }
 
     private void setPatientModels(){
@@ -87,6 +90,8 @@ public class AllPatients extends AppCompatActivity implements RecyclerViewInterf
 
     @Override
     public void onCardClick(int position) {
-        startActivity(new Intent(AllPatients.this, Patient.class));
+        Intent intent = new Intent(AllPatients.this, Patient.class);
+        intent.putExtra("PatientName", patientModels.get(position).PatientName);
+        startActivity(intent);
     }
 }
