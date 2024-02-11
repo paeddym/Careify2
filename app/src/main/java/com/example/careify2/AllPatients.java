@@ -8,6 +8,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
@@ -32,6 +33,14 @@ public class AllPatients extends AppCompatActivity {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             getSupportActionBar().setDisplayShowHomeEnabled(true);
         }
+
+        Button testButton;
+        testButton = (Button) findViewById(R.id.testButtonToPatient);
+        testButton.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View view){
+                startActivity(new Intent(AllPatients.this, Patient.class));          //MAGIC CODE
+            }
+        });
     }
 
     @Override
