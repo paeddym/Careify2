@@ -17,7 +17,7 @@ import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
 
-public class Category extends AppCompatActivity {
+public class Category extends AppCompatActivity implements RecyclerViewInterface {
 
     ArrayList<CategoryModel> categoryModels = new ArrayList<>();
 
@@ -31,7 +31,7 @@ public class Category extends AppCompatActivity {
 
         setCategoryModels();
 
-        Category_RecyclerViewAdapter adapter = new Category_RecyclerViewAdapter(this, categoryModels);
+        Category_RecyclerViewAdapter adapter = new Category_RecyclerViewAdapter(this, categoryModels, this);
 
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -93,4 +93,8 @@ public class Category extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    public void onCardClick(int position) {
+
+    }
 }
