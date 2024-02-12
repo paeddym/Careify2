@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Careify2</string>
+    <string name="app_name">Careify</string>
     <string name="to_be_implemented">To be implemented!</string>
     <string name="testButton">Testbutton</string>
     <string name="delete">Delete</string>

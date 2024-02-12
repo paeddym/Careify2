@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Careify2</string>
+    <string name="app_name">Careify</string>
     <string name="to_be_implemented">To be implemented!</string>
     <string name="testButton">Testbutton</string>
     <string name="delete">Sil</string>
