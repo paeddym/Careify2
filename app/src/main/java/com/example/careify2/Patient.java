@@ -2,12 +2,12 @@ package com.example.careify2;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -36,6 +36,17 @@ public class Patient extends AppCompatActivity {
 
     private FloatingActionButton fabEdit;
     private FloatingActionButton fabSave;
+    private EditText editTextName;
+    private EditText editTextAge;
+    private EditText editTextRoom;
+    private EditText editTextDiagnosis;
+    private EditText editTextMedication;
+
+    private TextView currentName;
+    private TextView currentAge;
+    private TextView currentRoom;
+    private TextView currentDiagnosis;
+    private TextView currentMedication;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +56,18 @@ public class Patient extends AppCompatActivity {
 
         fabEdit = findViewById(R.id.floatingActionButtonEdit);
         fabSave = findViewById(R.id.floatingActionButtonSave);
+
+        currentName = findViewById(R.id.patientName);
+        currentAge = findViewById(R.id.patientAge);
+        currentRoom = findViewById(R.id.patientRoom);
+        currentDiagnosis = findViewById(R.id.patientDiagnosis);
+        currentMedication = findViewById(R.id.patientMedication);
+
+        editTextName = findViewById(R.id.patientNameEdit);
+        editTextAge = findViewById(R.id.patientAgeEdit);
+        editTextRoom = findViewById(R.id.patientRoomEdit);
+        editTextDiagnosis = findViewById(R.id.patientDiagnosisEdit);
+        editTextMedication = findViewById(R.id.patientMedicationEdit);
 
         PatientName = getIntent().getStringExtra("PatientName");
         CategoryName = getIntent().getStringExtra("CategoryName");
@@ -73,23 +96,23 @@ public class Patient extends AppCompatActivity {
                             public void onSuccess(DocumentSnapshot documentSnapshot) {
                                 if(documentSnapshot.exists()){
 
-                                    TextView editName = findViewById(R.id.patientName);
-                                    TextView  editAge = findViewById(R.id.patientAge);
-                                    TextView  editRoom = findViewById(R.id.patientRoom);
-                                    TextView  editDiagnosis = findViewById(R.id.patientDiagnosis);
-                                    TextView  editMedication = findViewById(R.id.patientMedication);
-
                                     String name = documentSnapshot.getString(KEY_NAME);
                                     String age = documentSnapshot.getString(KEY_AGE);
                                     String room = documentSnapshot.getString(KEY_ROOM);
                                     String diagnosis = documentSnapshot.getString(KEY_DIAGNOSIS);
                                     String medication = documentSnapshot.getString(KEY_MEDICATION);
 
-                                    editName.setText(name, TextView.BufferType.EDITABLE);
-                                    editAge.setText(age, TextView.BufferType.EDITABLE);
-                                    editRoom.setText(room, TextView.BufferType.EDITABLE);
-                                    editDiagnosis.setText(diagnosis, TextView.BufferType.EDITABLE);
-                                    editMedication.setText(medication, TextView.BufferType.EDITABLE);
+                                    currentName.setText(name);
+                                    currentAge.setText(age);
+                                    currentRoom.setText(room);
+                                    currentDiagnosis.setText(diagnosis);
+                                    currentMedication.setText(medication);
+
+                                    editTextName.setText(name, TextView.BufferType.EDITABLE);
+                                    editTextAge.setText(age, TextView.BufferType.EDITABLE);
+                                    editTextRoom.setText(room, TextView.BufferType.EDITABLE);
+                                    editTextDiagnosis.setText(diagnosis, TextView.BufferType.EDITABLE);
+                                    editTextMedication.setText(medication, TextView.BufferType.EDITABLE);
 
                                 } else {
                                     Toast.makeText(Patient.this, "Patient doesn't exist!", Toast.LENGTH_SHORT).show();
@@ -110,17 +133,32 @@ public class Patient extends AppCompatActivity {
         if(!inEditMode) {
             fabEdit.setVisibility(View.GONE);
             fabSave.setVisibility(View.VISIBLE);
-            editPatientInfo();
+            currentName.setVisibility(View.GONE);
+            currentAge.setVisibility(View.GONE);
+            currentRoom.setVisibility(View.GONE);
+            currentDiagnosis.setVisibility(View.GONE);
+            currentMedication.setVisibility(View.GONE);
+            editTextName.setVisibility(View.VISIBLE);
+            editTextAge.setVisibility(View.VISIBLE);
+            editTextRoom.setVisibility(View.VISIBLE);
+            editTextDiagnosis.setVisibility(View.VISIBLE);
+            editTextMedication.setVisibility(View.VISIBLE);
         } else {
             fabEdit.setVisibility(View.VISIBLE);
             fabSave.setVisibility(View.GONE);
             saveChanges();
+            currentName.setVisibility(View.VISIBLE);
+            currentAge.setVisibility(View.VISIBLE);
+            currentRoom.setVisibility(View.VISIBLE);
+            currentDiagnosis.setVisibility(View.VISIBLE);
+            currentMedication.setVisibility(View.VISIBLE);
+            editTextName.setVisibility(View.GONE);
+            editTextAge.setVisibility(View.GONE);
+            editTextRoom.setVisibility(View.GONE);
+            editTextDiagnosis.setVisibility(View.GONE);
+            editTextMedication.setVisibility(View.GONE);
         }
         inEditMode = !inEditMode;
-    }
-
-    public void editPatientInfo(){
-
     }
 
     public void saveChanges(){
