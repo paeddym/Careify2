@@ -16,14 +16,14 @@
     <string name="edit">Megváltoztatás</string>
     <string name="editConfirm">Biztos a megváltoztatások megtartásában?</string>
 
-    <string name="pleaseEnter">"Please enter a facility and password"</string>
-    <string name="passwordIncorrect">"Password incorrect!"</string>
-    <string name="notRegisterd">"Facility is not registered!"</string>
-    <string name="noConnection">"No connection to Database!"</string>
-    <string name="enterCategory">"Please enter the new category's name!"</string>
-    <string name="enterPatient">"Please enter the patient's name!"</string>
-    <string name="categoryRemoved">"Category removed!"</string>
-    <string name="patientRemoved">"Patient removed!"</string>
+    <string name="pleaseEnter">Kérem adja be a céget és passzkódot</string>
+    <string name="passwordIncorrect">Passzkód nem stimmel</string>
+    <string name="notRegisterd">A cég nincs benne az adatbázisban</string>
+    <string name="noConnection">Nincs csatlakozás a serverhez!</string>
+    <string name="enterCategory">Kérem adja be az új kategóriát!</string>
+    <string name="enterPatient">Kérem adja be az új pacienset!</string>
+    <string name="categoryRemoved">Kategória törölve</string>
+    <string name="patientRemoved">Paciens törölve</string>
 
 
     <string name="name">Név</string>
