@@ -7,7 +7,6 @@
     <string name="deletePatientConfirm">Wollen Sie wirklich den Patienten löschen?</string>
     <string name="deleteCategoryConfirm">Wollen Sie wirklich den Bereich löschen?</string>
 
-
     <string name="login">Anmelden</string>
     <string name="facility">Einrichtung</string>
     <string name="password">Passwort</string>
@@ -16,6 +15,16 @@
     <string name="logoutConfirm">Wollen Sie sich wirklich abmelden?</string>
     <string name="edit">Bearbeiten</string>
     <string name="editConfirm">Wollen Sie Ihre Änderungen übernehmen?</string>
+
+    <string name="pleaseEnter">"Bitte Einrichtung und Passwort angeben"</string>
+    <string name="passwordIncorrect">"Passwort falsch!"</string>
+    <string name="notRegisterd">"Einrichtung nicht registriert!"</string>
+    <string name="noConnection">"Keine Verbindung zur Datenbank!"</string>
+    <string name="enterCategory">"Bitte Namen des Bereichs angeben"</string>
+    <string name="enterPatient">"Bitte Namen des Patienten angeben!"</string>
+
+    <string name="loadedCategory">"Bereiche geladen!"</string>
+    <string name="categoryRemoved">"Bereich entfernt!"</string>
 
     <string name="name">Name</string>
     <string name="age">Alter</string>

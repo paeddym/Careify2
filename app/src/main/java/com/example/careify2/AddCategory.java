@@ -46,7 +46,7 @@ public class AddCategory extends AppCompatActivity {
             public void onClick(View view){
                 String name = editTextName.getText().toString();
                 if(name.equals("")) {
-                    Toast.makeText(AddCategory.this, "Please enter the new category's name!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AddCategory.this, R.string.enterCategory, Toast.LENGTH_SHORT).show();
                 } else {
                     Map<String, Object> category = new HashMap<>();
                     category.put(KEY_NAME, name);
@@ -64,7 +64,7 @@ public class AddCategory extends AppCompatActivity {
                             }).addOnFailureListener(new OnFailureListener() {
                                 @Override
                                 public void onFailure(@NonNull Exception e) {
-                                    Toast.makeText(AddCategory.this, "No connection to Database!", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(AddCategory.this, R.string.noConnection, Toast.LENGTH_SHORT).show();
                                 }
                             });
                 }

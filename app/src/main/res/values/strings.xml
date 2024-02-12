@@ -15,6 +15,15 @@
     <string name="edit">Edit</string>
     <string name="editConfirm">Are you sure you want to save your changes?</string>
 
+    <string name="pleaseEnter">"Please enter a facility and password"</string>
+    <string name="passwordIncorrect">"Password incorrect!"</string>
+    <string name="notRegisterd">"Facility is not registered!"</string>
+    <string name="noConnection">"No connection to Database!"</string>
+    <string name="enterCategory">"Please enter the new category's name!"</string>
+    <string name="enterPatient">"Please enter the patient's name!"</string>
+
+    <string name="loadedCategory">"Loaded Categories!"</string>
+    <string name="categoryRemoved">"Category removed!"</string>
 
     <string name="name">Name</string>
     <string name="age">Age</string>
@@ -30,7 +39,6 @@
     <string name="add">Add</string>
     <string name="discard">Discard</string>
     <string name="discardConfirm">Are you sure you want to discard your changes?</string>
-
 
     <string name="enter_facility">Enter facility</string>
     <string name="enter_password">Enter password</string>

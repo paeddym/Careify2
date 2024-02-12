@@ -16,6 +16,16 @@
     <string name="edit">Megváltoztatás</string>
     <string name="editConfirm">Biztos a megváltoztatások megtartásában?</string>
 
+    <string name="pleaseEnter">"Please enter a facility and password"</string>
+    <string name="passwordIncorrect">"Password incorrect!"</string>
+    <string name="notRegisterd">"Facility is not registered!"</string>
+    <string name="noConnection">"No connection to Database!"</string>
+    <string name="enterCategory">"Please enter the new category's name!"</string>
+    <string name="enterPatient">"Please enter the patient's name!"</string>
+
+    <string name="loadedCategory">"Loaded Categories!"</string>
+    <string name="categoryRemoved">"Category removed!"</string>
+
     <string name="name">Név</string>
     <string name="age">Kor</string>
     <string name="room">Szoba</string>
