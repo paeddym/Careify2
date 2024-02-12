@@ -10,11 +10,11 @@
         android:id="@+id/loginFacility"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="159dp"
-        android:layout_marginEnd="39dp"
+        android:layout_marginTop="160dp"
+        android:layout_marginEnd="40dp"
         android:ems="10"
-        android:inputType="text"
         android:hint="@string/enter_facility"
+        android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -22,13 +22,14 @@
         android:id="@+id/loginPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="36dp"
+        android:layout_marginTop="220dp"
+        android:layout_marginEnd="40dp"
         android:layout_marginBottom="460dp"
         android:ems="10"
-        android:inputType="textPassword"
         android:hint="@string/enter_password"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textViewFacility"
@@ -47,23 +48,24 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
-        android:layout_marginBottom="471dp"
+        android:layout_marginTop="230dp"
         android:text="@string/password"
         android:textColor="#000000"
         android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/loginButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="149dp"
-        android:layout_marginBottom="367dp"
+        android:layout_marginBottom="350dp"
         android:backgroundTint="@color/primary"
         android:onClick="superSafePasswordChecker"
         android:text="@string/login"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
