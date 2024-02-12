@@ -28,16 +28,6 @@ public class Login extends AppCompatActivity {
 
         editTextName = findViewById(R.id.loginFacility);
         editTextPassword = findViewById(R.id.loginPassword);
-
-        editTextName.setText("", TextView.BufferType.EDITABLE);
-        editTextPassword.setText("", TextView.BufferType.EDITABLE);
-    }
-
-    @Override
-    protected void onResume(){
-        super.onResume();
-        editTextName.setText("", TextView.BufferType.EDITABLE);
-        editTextPassword.setText("", TextView.BufferType.EDITABLE);
     }
 
     public void superSafePasswordChecker(View v){               //Definitely very safe!
@@ -60,13 +50,8 @@ public class Login extends AppCompatActivity {
                                     Toast.makeText(Login.this, "Password incorrect!", Toast.LENGTH_SHORT).show();
                                 }
                             } else {
-                                Toast.makeText(Login.this, "Facility doesn't exist!", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(Login.this, "Facility is not registered!", Toast.LENGTH_SHORT).show();
                             }
-                        }
-                    })
-                    .addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
                         }
                     });
         }
