@@ -30,6 +30,7 @@ public class Patient extends AppCompatActivity {
 
     private String PatientName;
     private String CategoryName;
+    private String FacilityName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +40,7 @@ public class Patient extends AppCompatActivity {
 
         PatientName = getIntent().getStringExtra("PatientName");
         CategoryName = getIntent().getStringExtra("CategoryName");
+        FacilityName = getIntent().getStringExtra("FacilityName");
 
         if (getSupportActionBar() != null){
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -52,7 +54,7 @@ public class Patient extends AppCompatActivity {
     }
 
     public void loadPatientOnCreate(){
-        DocumentReference documentRef = db.collection("Facility").document("Paulinenstift")
+        DocumentReference documentRef = db.collection("Facility").document(FacilityName)
                 .collection("Category").document(CategoryName)
                 .collection("Patient").document(PatientName);
         documentRef.get()
@@ -121,6 +123,7 @@ public class Patient extends AppCompatActivity {
         if (id == android.R.id.home) {
             Intent intent = new Intent(Patient.this, AllPatients.class);
             intent.putExtra("CategoryName", CategoryName);
+            intent.putExtra("FacilityName", FacilityName);
             startActivity(intent);
         }
         return super.onOptionsItemSelected(item);

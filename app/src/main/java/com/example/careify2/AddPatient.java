@@ -31,6 +31,7 @@ public class AddPatient extends AppCompatActivity {
     private static final String KEY_DIAGNOSIS = "Diagnose";
     private static final String KEY_MEDICATION = "Medikation";
     private String CategoryName;
+    private String FacilityName;
     private EditText editTextName;
     private EditText editTextAge;
     private EditText editTextRoom;
@@ -54,6 +55,7 @@ public class AddPatient extends AppCompatActivity {
         getSupportActionBar().setTitle(R.string.add_patient);
 
         CategoryName = getIntent().getStringExtra("CategoryName");
+        FacilityName = getIntent().getStringExtra("FacilityName");
 
         editTextName = findViewById(R.id.addPatientName);
         editTextAge = findViewById(R.id.addPatientAge);
@@ -79,7 +81,7 @@ public class AddPatient extends AppCompatActivity {
         patient.put(KEY_DIAGNOSIS, diagnosis);
         patient.put(KEY_MEDICATION, medication);
 
-        db.collection("Facility").document("Paulinenstift")
+        db.collection("Facility").document(FacilityName)
                 .collection("Category").document(CategoryName)
                 .collection("Patient").document(name).set(patient)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
@@ -88,6 +90,7 @@ public class AddPatient extends AppCompatActivity {
                         Toast.makeText(AddPatient.this, "Success!", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(AddPatient.this, AllPatients.class);
                         intent.putExtra("CategoryName", CategoryName);
+                        intent.putExtra("FacilityName", FacilityName);
                         startActivity(intent);
                     }
                 }).addOnFailureListener(new OnFailureListener() {
@@ -117,6 +120,7 @@ public class AddPatient extends AppCompatActivity {
         if (id == android.R.id.home) {
             Intent intent = new Intent(AddPatient.this, AllPatients.class);
             intent.putExtra("CategoryName", CategoryName);
+            intent.putExtra("FacilityName", FacilityName);
             startActivity(intent);
         }
         return super.onOptionsItemSelected(item);

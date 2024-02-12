@@ -35,6 +35,7 @@ public class AllPatients extends AppCompatActivity implements RecyclerViewInterf
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private static final String KEY_NAME = "Name";
     private String CategoryName;
+    private String FacilityName;
     private CollectionReference collectionReference;
 
     private String[] allPatients;
@@ -48,7 +49,9 @@ public class AllPatients extends AppCompatActivity implements RecyclerViewInterf
         setSupportActionBar(findViewById(R.id.toolbarAllPatients));
 
         CategoryName = getIntent().getStringExtra("CategoryName");
-        collectionReference = db.collection("Facility").document("Paulinenstift")
+        FacilityName = getIntent().getStringExtra("CategoryName");
+
+        collectionReference = db.collection("Facility").document(FacilityName)
                 .collection("Category").document(CategoryName).collection("Patient");
         loadPatientNames(collectionReference);
 
@@ -58,6 +61,7 @@ public class AllPatients extends AppCompatActivity implements RecyclerViewInterf
             public void onClick(View view){
                 Intent intent = new Intent(AllPatients.this, AddPatient.class);
                 intent.putExtra("CategoryName", CategoryName);
+                intent.putExtra("FacilityName", FacilityName);
                 startActivity(intent);
             }
         });
@@ -158,7 +162,10 @@ public class AllPatients extends AppCompatActivity implements RecyclerViewInterf
         }
 
         if (id == android.R.id.home) {
-            startActivity(new Intent(AllPatients.this, Category.class));
+            Intent intent = new Intent(AllPatients.this, Patient.class);
+            intent.putExtra("FacilityName", FacilityName);
+            intent.putExtra("CategoryName", CategoryName);
+            startActivity(intent);
         }
         return super.onOptionsItemSelected(item);
     }
@@ -168,6 +175,7 @@ public class AllPatients extends AppCompatActivity implements RecyclerViewInterf
         Intent intent = new Intent(AllPatients.this, Patient.class);
         intent.putExtra("PatientName", patientModels.get(position).PatientName);
         intent.putExtra("CategoryName", CategoryName);
+        intent.putExtra("FacilityName", FacilityName);
         startActivity(intent);
     }
 }
