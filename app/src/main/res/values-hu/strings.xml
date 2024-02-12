@@ -1,22 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Careify2</string>
-    <string name="to_be_implemented">To be implemented!</string>
-    <string name="testButton">Testbutton</string>
+    <string name="to_be_implemented">Még nem implementált!</string>
+    <string name="testButton">Tesztgomb</string>
+    <string name="delete">Törlés</string>
+    <string name="deletePatientConfirm">Biztos a paciens törlésében?</string>
+    <string name="deleteCategoryConfirm">Biztos a kategória törlésében?</string>
 
-    <string name="login">Anmelden</string>
-    <string name="facility">Einrichtung</string>
-    <string name="password">Passwort</string>
-    <string name="loginMessage">Um Zugangsdaten zu erhalten, buchen Sie für Ihre Einrichtung ein entsprechendes Abonnement unter:\n\nxileff.muster@gmail.com</string>
+    <string name="login">Bejelentkezés</string>
+    <string name="facility">Cég</string>
+    <string name="password">Passkód</string>
+    <string name="loginMessage">Hassználathoz tájékozódjon a követendö címmel:\n\nxileff.muster@gmail.com</string>
 
-    <string name="name">Name</string>
-    <string name="age">Alter</string>
-    <string name="room">Raum</string>
-    <string name="diagnosis">Diagnose</string>
-    <string name="medication">Medikamente</string>
-    <string name="category">Bereiche</string>
-    <string name="patients">Patienten</string>
-    <string name="patient">Patient</string>
+    <string name="name">Név</string>
+    <string name="age">Kor</string>
+    <string name="room">Szoba</string>
+    <string name="diagnosis">Diagnózis</string>
+    <string name="medication">Gyogyszerek</string>
+    <string name="category">Kategória</string>
+    <string name="patients">Paciensek</string>
+    <string name="patient">Patiens</string>
 
     <string name="add_category">Bereich hinzufügen</string>
     <string name="add_patient">Patient hinzufügen</string>
