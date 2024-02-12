@@ -49,7 +49,7 @@ public class AllPatients extends AppCompatActivity implements RecyclerViewInterf
         setSupportActionBar(findViewById(R.id.toolbarAllPatients));
 
         CategoryName = getIntent().getStringExtra("CategoryName");
-        FacilityName = getIntent().getStringExtra("CategoryName");
+        FacilityName = getIntent().getStringExtra("FacilityName");
 
         collectionReference = db.collection("Facility").document(FacilityName)
                 .collection("Category").document(CategoryName).collection("Patient");
@@ -162,7 +162,7 @@ public class AllPatients extends AppCompatActivity implements RecyclerViewInterf
         }
 
         if (id == android.R.id.home) {
-            Intent intent = new Intent(AllPatients.this, Patient.class);
+            Intent intent = new Intent(AllPatients.this, Category.class);
             intent.putExtra("FacilityName", FacilityName);
             intent.putExtra("CategoryName", CategoryName);
             startActivity(intent);
