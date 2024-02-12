@@ -31,7 +31,7 @@ public class Login extends AppCompatActivity {
 
     public void superSafePasswordChecker(View v){               //Definitely very safe!
         if(editTextName.getText().toString().equals("") || editTextPassword.getText().toString().equals("")){
-            Toast.makeText(this, "Please enter a facility and password", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.pleaseEnter, Toast.LENGTH_SHORT).show();
         } else {
             String name = editTextName.getText().toString();
             String password = editTextPassword.getText().toString();
@@ -46,17 +46,17 @@ public class Login extends AppCompatActivity {
                                     intent.putExtra("FacilityName", name);
                                     startActivity(intent);
                                 } else {
-                                    Toast.makeText(Login.this, "Password incorrect!", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(Login.this, R.string.passwordIncorrect, Toast.LENGTH_SHORT).show();
                                 }
                             } else {
-                                Toast.makeText(Login.this, "Facility is not registered!", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(Login.this, R.string.notRegisterd, Toast.LENGTH_SHORT).show();
                             }
                         }
                     })
                     .addOnFailureListener(new OnFailureListener() {
                         @Override
                         public void onFailure(@NonNull Exception e) {
-                            Toast.makeText(Login.this, "No connection to Database!", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Login.this, R.string.noConnection, Toast.LENGTH_SHORT).show();
                         }
                     });
         }

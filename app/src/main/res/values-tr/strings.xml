@@ -7,7 +7,6 @@
     <string name="deletePatientConfirm">Müşteriyi silmek istiyormusunuz?</string>
     <string name="deleteCategoryConfirm">Bölümü silmek istiyormusunuz?</string>
 
-
     <string name="login">Kayıtla</string>
     <string name="facility">Şirket</string>
     <string name="password">Şifre</string>
@@ -16,6 +15,16 @@
     <string name="logoutConfirm">Oturumu kapatmak istiyormusunuz?</string>
     <string name="edit">Kayit</string>
     <string name="editConfirm">Değişimı kaydetmek istiyormusunuz?</string>
+
+    <string name="pleaseEnter">"Lütfen Şirketin adını ve kileti yazın"</string>
+    <string name="passwordIncorrect">"Kilet yanlış!"</string>
+    <string name="notRegisterd">"Şirket bulunmadi!"</string>
+    <string name="noConnection">"Veritabanına bağlantı yok!"</string>
+    <string name="enterCategory">"Lütfen yeni bölüm adını girin!"</string>
+    <string name="enterPatient">""Lütfen müşterinin adını girin!"</string>
+
+    <string name="loadedCategory">"Bölümler Yüklendi!"</string>
+    <string name="categoryRemoved">"Bölüm silindi!"</string>
 
     <string name="name">Ad</string>
     <string name="age">Yaş</string>
@@ -34,7 +43,7 @@
 
     <string name="enter_facility">Şirketı belirt</string>
     <string name="enter_password">Şifreyı belirt</string>
-    <string name="enter_category">Yeni Sirektı belirt</string>
+    <string name="enter_category">Yeni Şirektı belirt</string>
 
     <string name="enter_name">Adı belirt</string>
     <string name="enter_age">Yaşı belirt</string>

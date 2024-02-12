@@ -76,7 +76,7 @@ public class AddPatient extends AppCompatActivity {
         String medication = editTextMedication.getText().toString();
 
         if(name.equals("")) {
-            Toast.makeText(this, "Please enter the patient's name!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.enterPatient, Toast.LENGTH_SHORT).show();
         } else {
             Map<String, Object> patient = new HashMap<>();
             patient.put(KEY_NAME, name);
@@ -99,7 +99,7 @@ public class AddPatient extends AppCompatActivity {
                     }).addOnFailureListener(new OnFailureListener() {
                         @Override
                         public void onFailure(@NonNull Exception e) {
-                            Toast.makeText(AddPatient.this, "Failed to connect to Database!", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(AddPatient.this, R.string.noConnection, Toast.LENGTH_SHORT).show();
                         }
                     });
         }

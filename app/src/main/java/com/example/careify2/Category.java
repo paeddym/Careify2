@@ -94,7 +94,7 @@ public class Category extends AppCompatActivity implements RecyclerViewInterface
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(Category.this, "Failed to load Categories!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Category.this, R.string.loadedCategory, Toast.LENGTH_SHORT).show();
                     }
                 });
     }
@@ -184,13 +184,13 @@ public class Category extends AppCompatActivity implements RecyclerViewInterface
                                     public void onSuccess(Void unused) {
                                         categoryModels.remove(position);
                                         adapter.notifyItemRemoved(position);
-                                        Toast.makeText(Category.this, "Category removed!", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(Category.this, R.string.categoryRemoved, Toast.LENGTH_SHORT).show();
                                     }
                                 })
                                 .addOnFailureListener(new OnFailureListener() {
                                     @Override
                                     public void onFailure(@NonNull Exception e) {
-
+                                        Toast.makeText(Category.this, R.string.noConnection, Toast.LENGTH_SHORT).show();
                                     }
                                 });
                     }})
