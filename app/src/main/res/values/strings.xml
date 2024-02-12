@@ -28,8 +28,8 @@
     <string name="add_category">Add area</string>
     <string name="add_patient">Add patient</string>
     <string name="add">Add</string>
-    <string name="discard">Verwerfen</string>
-    <string name="discardConfirm">Wollen Sie Ihre Änderungen verwerfen?</string>
+    <string name="discard">Discard</string>
+    <string name="discardConfirm">Are you sure you want to discard your changes?</string>
 
 
     <string name="enter_facility">Enter facility</string>

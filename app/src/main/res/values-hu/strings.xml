@@ -13,8 +13,8 @@
     <string name="loginMessage">Hassználathoz tájékozódjon a követendö címmel:\n\nxileff.muster@gmail.com</string>
     <string name="logout">Kijelentkezés</string>
     <string name="logoutConfirm">Biztos a kijelentkezésben?</string>
-    <string name="edit">Edit</string>
-    <string name="editConfirm">Are you sure you want to save your changes?</string>
+    <string name="edit">Megváltoztatás</string>
+    <string name="editConfirm">Biztos a megváltoztatások megtartásában?</string>
 
     <string name="name">Név</string>
     <string name="age">Kor</string>
@@ -28,8 +28,8 @@
     <string name="add_category">Új kategória</string>
     <string name="add_patient">Új paciens</string>
     <string name="add">Hozzáadás</string>
-    <string name="discard">Verwerfen</string>
-    <string name="discardConfirm">Wollen Sie Ihre Änderungen verwerfen?</string>
+    <string name="discard">Törlés</string>
+    <string name="discardConfirm">Biztos a megváltoztatások törlésében?</string>
 
     <string name="enter_facility">Cég megadása</string>
     <string name="enter_password">Paszkód megadása</string>

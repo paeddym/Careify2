@@ -14,8 +14,8 @@
     <string name="loginMessage">Um Zugangsdaten zu erhalten, buchen Sie für Ihre Einrichtung ein entsprechendes Abonnement unter:\n\nxileff.muster@gmail.com</string>
     <string name="logout">Abmelden</string>
     <string name="logoutConfirm">Wollen Sie sich wirklich abmelden?</string>
-    <string name="edit">Edit</string>
-    <string name="editConfirm">Are you sure you want to save your changes?</string>
+    <string name="edit">Bearbeiten</string>
+    <string name="editConfirm">Wollen Sie Ihre Änderungen übernehmen?</string>
 
     <string name="name">Name</string>
     <string name="age">Alter</string>
