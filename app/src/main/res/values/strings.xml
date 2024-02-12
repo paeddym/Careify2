@@ -19,10 +19,11 @@
     <string name="passwordIncorrect">Password incorrect!</string>
     <string name="notRegisterd">Facility is not registered!</string>
     <string name="noConnection">No connection to Database!</string>
-    <string name="enterCategory">Please enter the new category's name!</string>
-    <string name="enterPatient">Please enter the patient's name!</string>
+    <string name="enterCategory">Please enter the new categorys name!</string>
+    <string name="enterPatient">Please enter the patients name!</string>
     <string name="categoryRemoved">Category removed!</string>
     <string name="patientRemoved">Patient removed!</string>
+    <string name="patientDoesntExist">Patient doesnt exist!</string>
 
     <string name="name">Name</string>
     <string name="age">Age</string>

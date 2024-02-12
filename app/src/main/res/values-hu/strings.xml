@@ -24,8 +24,7 @@
     <string name="enterPatient">Kérem adja be az új pacienset!</string>
     <string name="categoryRemoved">Kategória törölve</string>
     <string name="patientRemoved">Paciens törölve</string>
-
-    <string name="patientDoesntExist">"Patient doesn't exist!"</string>
+    <string name="patientDoesntExist">Patient doesnt exist!</string>
 
     <string name="name">Név</string>
     <string name="age">Kor</string>

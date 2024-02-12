@@ -24,6 +24,7 @@
     <string name="enterPatient">Bitte Namen des Patienten angeben!</string>
     <string name="categoryRemoved">Bereich entfernt!</string>
     <string name="patientRemoved">Patient entfernt!</string>
+    <string name="patientDoesntExist">Patient existiert nicht!</string>
 
     <string name="name">Name</string>
     <string name="age">Alter</string>
