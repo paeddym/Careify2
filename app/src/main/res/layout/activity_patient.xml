@@ -16,14 +16,13 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/avatars" />
 
-    <EditText
+    <TextView
         android:id="@+id/patientMedication"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="144dp"
-        android:layout_marginTop="344dp"
+        android:layout_marginStart="228dp"
+        android:layout_marginTop="356dp"
         android:ems="10"
-        android:inputType="text"
         android:text="Ibuprofen"
         android:textColor="#8E8E8E"
         android:textSize="14sp"
@@ -35,7 +34,7 @@
         android:layout_width="60dp"
         android:layout_height="24dp"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="252dp"
+        android:layout_marginTop="284dp"
         android:text="@string/room"
         android:textColor="#000000"
         android:textSize="16sp"
@@ -46,22 +45,21 @@
         android:id="@+id/patientDiagnosisText"
         android:layout_width="100dp"
         android:layout_height="22dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="304dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="320dp"
         android:text="@string/diagnosis"
         android:textColor="#000000"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
+    <TextView
         android:id="@+id/patientName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="92dp"
+        android:layout_marginTop="128dp"
         android:layout_marginEnd="12dp"
         android:ems="10"
-        android:inputType="text"
         android:text="Patrik M."
         android:textColor="#8E8E8E"
         android:textSize="14sp"
@@ -73,21 +71,20 @@
         android:layout_width="60dp"
         android:layout_height="24dp"
         android:layout_marginStart="172dp"
-        android:layout_marginTop="156dp"
+        android:layout_marginTop="176dp"
         android:text="@string/age"
         android:textColor="#000000"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
+    <TextView
         android:id="@+id/patientAge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="148dp"
+        android:layout_marginTop="176dp"
         android:layout_marginEnd="12dp"
         android:ems="10"
-        android:inputType="text"
         android:text="21"
         android:textColor="#8E8E8E"
         android:textSize="14sp"
@@ -98,7 +95,7 @@
         android:id="@+id/patientMedicationText"
         android:layout_width="115dp"
         android:layout_height="24dp"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="44dp"
         android:layout_marginTop="352dp"
         android:text="@string/medication"
         android:textColor="#000000"
@@ -110,37 +107,35 @@
         android:id="@+id/patientNameText"
         android:layout_width="60dp"
         android:layout_height="24dp"
-        android:layout_marginTop="104dp"
+        android:layout_marginTop="124dp"
         android:text="@string/name"
         android:textColor="#000000"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
+    <TextView
         android:id="@+id/patientDiagnosis"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="144dp"
-        android:layout_marginTop="292dp"
+        android:layout_marginStart="228dp"
+        android:layout_marginTop="316dp"
         android:ems="10"
-        android:inputType="text"
         android:text="Migräne"
         android:textColor="#8E8E8E"
         android:textSize="14sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
+    <TextView
         android:id="@+id/patientRoom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="144dp"
-        android:layout_marginTop="240dp"
+        android:layout_marginStart="228dp"
+        android:layout_marginTop="284dp"
         android:ems="10"
-        android:inputType="text"
         android:text="12345"
         android:textColor="#8E8E8E"
         android:textSize="14sp"

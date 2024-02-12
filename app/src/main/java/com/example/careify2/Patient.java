@@ -61,11 +61,11 @@ public class Patient extends AppCompatActivity {
                             public void onSuccess(DocumentSnapshot documentSnapshot) {
                                 if(documentSnapshot.exists()){
 
-                                    EditText editName = findViewById(R.id.patientName);
-                                    EditText editAge = findViewById(R.id.patientAge);
-                                    EditText editRoom = findViewById(R.id.patientRoom);
-                                    EditText editDiagnosis = findViewById(R.id.patientDiagnosis);
-                                    EditText editMedication = findViewById(R.id.patientMedication);
+                                    TextView editName = findViewById(R.id.patientName);
+                                    TextView  editAge = findViewById(R.id.patientAge);
+                                    TextView  editRoom = findViewById(R.id.patientRoom);
+                                    TextView  editDiagnosis = findViewById(R.id.patientDiagnosis);
+                                    TextView  editMedication = findViewById(R.id.patientMedication);
 
                                     String name = documentSnapshot.getString(KEY_NAME);
                                     String age = documentSnapshot.getString(KEY_AGE);
