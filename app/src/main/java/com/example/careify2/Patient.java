@@ -6,12 +6,14 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -27,10 +29,13 @@ public class Patient extends AppCompatActivity {
     private static final String KEY_DIAGNOSIS = "Diagnose";
     private static final String KEY_MEDICATION = "Medikation";
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
-
+    private boolean inEditMode = false;
     private String PatientName;
     private String CategoryName;
     private String FacilityName;
+
+    private View fabEdit;
+    private View fabSave;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +46,9 @@ public class Patient extends AppCompatActivity {
         PatientName = getIntent().getStringExtra("PatientName");
         CategoryName = getIntent().getStringExtra("CategoryName");
         FacilityName = getIntent().getStringExtra("FacilityName");
+
+        fabEdit = findViewById(R.id.floatingActionButtonEdit);
+        fabSave = findViewById(R.id.floatingActionButtonSave);
 
         if (getSupportActionBar() != null){
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -95,7 +103,18 @@ public class Patient extends AppCompatActivity {
                                     }
                                 });
     }
-    
+
+    public void toggleEdit(){
+        if(inEditMode){
+            fabEdit.setVisibility(View.GONE);
+            fabSave.setVisibility(View.VISIBLE);
+            inEditMode = !inEditMode;
+        } else {
+            fabEdit.setVisibility(View.VISIBLE);
+            fabSave.setVisibility(View.GONE);
+            inEditMode = !inEditMode;
+        }
+    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
