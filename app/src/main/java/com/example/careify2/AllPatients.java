@@ -18,11 +18,11 @@ import android.widget.Toast;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 import java.util.ArrayList;
+import java.util.List;
 
 public class AllPatients extends AppCompatActivity implements RecyclerViewInterface{
 
@@ -31,8 +31,6 @@ public class AllPatients extends AppCompatActivity implements RecyclerViewInterf
     private static final String KEY_NAME = "Name";
     private String CategoryName;
     private String FacilityName;
-
-    private String[] allPatients;
 
     Patient_RecyclerViewAdapter adapter;
 
@@ -73,18 +71,21 @@ public class AllPatients extends AppCompatActivity implements RecyclerViewInterf
                 .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                     @Override
                     public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
-                        int i = 0;
+
+                        List<String> patientList = new ArrayList<>();
+                        String[] allPatients;
+
                         for(QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots){
-                            i++;
+                            patientList.add(documentSnapshot.getString(KEY_NAME));
                         }
-                        allPatients = new String[i];
-                        i = 0;
-                        for(QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots){
-                            allPatients[i] = documentSnapshot.getString(KEY_NAME);
-                            i++;
+
+                        allPatients = new String[patientList.size()];
+                        patientList.toArray(allPatients);
+
+                        for (int i=0; i<allPatients.length; i++){
+                            patientModels.add(new PatientModel(allPatients[i]));
                         }
-                        Toast.makeText(AllPatients.this, "Loaded Patients!", Toast.LENGTH_SHORT).show();
-                        setPatientModels(allPatients);
+
                         RecyclerView recyclerView = findViewById(R.id.Patients);
                         adapter = new Patient_RecyclerViewAdapter(AllPatients.this, patientModels, AllPatients.this);
                         recyclerView.setAdapter(adapter);
@@ -94,16 +95,9 @@ public class AllPatients extends AppCompatActivity implements RecyclerViewInterf
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(AllPatients.this, "Failed to load Patients!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(AllPatients.this, "Failed to reach Database!", Toast.LENGTH_SHORT).show();
                     }
                 });
-    }
-
-    private void setPatientModels(String[] patients){
-
-        for (int i=0; i<patients.length; i++){
-            patientModels.add(new PatientModel(patients[i]));
-        }
     }
 
     @Override
@@ -147,7 +141,6 @@ public class AllPatients extends AppCompatActivity implements RecyclerViewInterf
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.app_bar_search) {
-            Snackbar.make(findViewById(android.R.id.content), R.string.to_be_implemented, Snackbar.LENGTH_SHORT).show();
             return true;
         }
 
