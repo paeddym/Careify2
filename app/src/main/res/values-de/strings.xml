@@ -14,6 +14,8 @@
     <string name="loginMessage">Um Zugangsdaten zu erhalten, buchen Sie für Ihre Einrichtung ein entsprechendes Abonnement unter:\n\nxileff.muster@gmail.com</string>
     <string name="logout">Abmelden</string>
     <string name="logoutConfirm">Wollen Sie sich wirklich abmelden?</string>
+    <string name="edit">Edit</string>
+    <string name="editConfirm">Are you sure you want to save your changes?</string>
 
     <string name="name">Name</string>
     <string name="age">Alter</string>
@@ -27,6 +29,8 @@
     <string name="add_category">Bereich hinzufügen</string>
     <string name="add_patient">Patient hinzufügen</string>
     <string name="add">Hinzufügen</string>
+    <string name="discard">Verwerfen</string>
+    <string name="discardConfirm">Wollen Sie Ihre Änderungen verwerfen?</string>
 
     <string name="enter_facility">Einrichtung eingeben</string>
     <string name="enter_password">Passwort eingeben</string>

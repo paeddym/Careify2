@@ -12,6 +12,9 @@
     <string name="loginMessage">To get login credentials, please contact us at :\n\nxileff.muster@gmail.com</string>
     <string name="logout">Logout</string>
     <string name="logoutConfirm">Are you sure you want to log out?</string>
+    <string name="edit">Edit</string>
+    <string name="editConfirm">Are you sure you want to save your changes?</string>
+
 
     <string name="name">Name</string>
     <string name="age">Age</string>
@@ -25,6 +28,9 @@
     <string name="add_category">Add area</string>
     <string name="add_patient">Add patient</string>
     <string name="add">Add</string>
+    <string name="discard">Verwerfen</string>
+    <string name="discardConfirm">Wollen Sie Ihre Änderungen verwerfen?</string>
+
 
     <string name="enter_facility">Enter facility</string>
     <string name="enter_password">Enter password</string>

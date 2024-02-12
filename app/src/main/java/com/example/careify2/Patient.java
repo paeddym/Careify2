@@ -1,6 +1,9 @@
 package com.example.careify2;
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -147,71 +150,89 @@ public class Patient extends AppCompatActivity {
             editTextDiagnosis.setVisibility(View.VISIBLE);
             editTextMedication.setVisibility(View.VISIBLE);
         } else {
-            fabEdit.setVisibility(View.VISIBLE);
-            fabSave.setVisibility(View.GONE);
-            currentName.setVisibility(View.VISIBLE);
-            currentAge.setVisibility(View.VISIBLE);
-            currentRoom.setVisibility(View.VISIBLE);
-            currentDiagnosis.setVisibility(View.VISIBLE);
-            currentMedication.setVisibility(View.VISIBLE);
-            editTextName.setVisibility(View.GONE);
-            editTextAge.setVisibility(View.GONE);
-            editTextRoom.setVisibility(View.GONE);
-            editTextDiagnosis.setVisibility(View.GONE);
-            editTextMedication.setVisibility(View.GONE);
             saveChanges();
         }
         inEditMode = !inEditMode;
     }
 
     public void saveChanges(){
-        String newName = editTextName.getText().toString();
-        String newAge = editTextAge.getText().toString();
-        String newRoom = editTextRoom.getText().toString();
-        String newDiagnosis = editTextDiagnosis.getText().toString();
-        String newMedication = editTextMedication.getText().toString();
+        new AlertDialog.Builder(this)
+                .setTitle(R.string.edit)
+                .setMessage(R.string.editConfirm)
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
 
-        if(newName.equals("")) {
-            Toast.makeText(this, "Please enter the Patient's name!", Toast.LENGTH_SHORT).show();
-        } else {
-            Map<String, Object> patient = new HashMap<>();
-            patient.put(KEY_NAME, newName);
-            patient.put(KEY_AGE, newAge);
-            patient.put(KEY_ROOM, newRoom);
-            patient.put(KEY_DIAGNOSIS, newDiagnosis);
-            patient.put(KEY_MEDICATION, newMedication);
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                        String newName = editTextName.getText().toString();
+                        String newAge = editTextAge.getText().toString();
+                        String newRoom = editTextRoom.getText().toString();
+                        String newDiagnosis = editTextDiagnosis.getText().toString();
+                        String newMedication = editTextMedication.getText().toString();
 
-            db.collection("Facility").document(FacilityName)
-                    .collection("Category").document(CategoryName)
-                    .collection("Patient").document(PatientName).delete()
-                    .addOnSuccessListener(new OnSuccessListener<Void>() {
-                        @Override
-                        public void onSuccess(Void unused) {
-                            Toast.makeText(Patient.this, "Old Patient removed!", Toast.LENGTH_SHORT).show();
-                        }
-                    })
-                    .addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
+                        if(newName.equals("")) {
+                            Toast.makeText(Patient.this, "Please enter the Patient's name!", Toast.LENGTH_SHORT).show();
+                        } else {
+                            Map<String, Object> patient = new HashMap<>();
+                            patient.put(KEY_NAME, newName);
+                            patient.put(KEY_AGE, newAge);
+                            patient.put(KEY_ROOM, newRoom);
+                            patient.put(KEY_DIAGNOSIS, newDiagnosis);
+                            patient.put(KEY_MEDICATION, newMedication);
 
-                        }
-                    });
+                            db.collection("Facility").document(FacilityName)
+                                    .collection("Category").document(CategoryName)
+                                    .collection("Patient").document(PatientName).delete()
+                                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                        @Override
+                                        public void onSuccess(Void unused) {
+                                            Toast.makeText(Patient.this, "Old Patient removed!", Toast.LENGTH_SHORT).show();
+                                        }
+                                    })
+                                    .addOnFailureListener(new OnFailureListener() {
+                                        @Override
+                                        public void onFailure(@NonNull Exception e) {
 
-            db.collection("Facility").document(FacilityName)
-                    .collection("Category").document(CategoryName)
-                    .collection("Patient").document(newName).set(patient)
-                    .addOnSuccessListener(new OnSuccessListener<Void>() {
-                        @Override
-                        public void onSuccess(Void unused) {
-                            Toast.makeText(Patient.this, "Success!", Toast.LENGTH_SHORT).show();
+                                        }
+                                    });
+
+                            db.collection("Facility").document(FacilityName)
+                                    .collection("Category").document(CategoryName)
+                                    .collection("Patient").document(newName).set(patient)
+                                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                        @Override
+                                        public void onSuccess(Void unused) {
+                                            Toast.makeText(Patient.this, "Success!", Toast.LENGTH_SHORT).show();
+                                        }
+                                    }).addOnFailureListener(new OnFailureListener() {
+                                        @Override
+                                        public void onFailure(@NonNull Exception e) {
+                                            Toast.makeText(Patient.this, "Failure!", Toast.LENGTH_SHORT).show();
+                                        }
+                                    });
+                            Intent intent = new Intent(Patient.this, AllPatients.class);
+                            intent.putExtra("CategoryName", CategoryName);
+                            intent.putExtra("FacilityName", FacilityName);
+                            startActivity(intent);
                         }
-                    }).addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                            Toast.makeText(Patient.this, "Failure!", Toast.LENGTH_SHORT).show();
-                        }
-                    });
-        }
+                    }})
+                .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        fabEdit.setVisibility(View.VISIBLE);
+                        fabSave.setVisibility(View.GONE);
+                        currentName.setVisibility(View.VISIBLE);
+                        currentAge.setVisibility(View.VISIBLE);
+                        currentRoom.setVisibility(View.VISIBLE);
+                        currentDiagnosis.setVisibility(View.VISIBLE);
+                        currentMedication.setVisibility(View.VISIBLE);
+                        editTextName.setVisibility(View.GONE);
+                        editTextAge.setVisibility(View.GONE);
+                        editTextRoom.setVisibility(View.GONE);
+                        editTextDiagnosis.setVisibility(View.GONE);
+                        editTextMedication.setVisibility(View.GONE);
+                    }
+                }).show();
+
     }
 
     @Override
@@ -226,10 +247,27 @@ public class Patient extends AppCompatActivity {
         int id = item.getItemId();
 
         if (id == android.R.id.home) {
-            Intent intent = new Intent(Patient.this, AllPatients.class);
-            intent.putExtra("CategoryName", CategoryName);
-            intent.putExtra("FacilityName", FacilityName);
-            startActivity(intent);
+            if(inEditMode) {
+                new AlertDialog.Builder(this)
+                        .setTitle(R.string.discard)
+                        .setMessage(R.string.discardConfirm)
+                        .setIcon(android.R.drawable.ic_dialog_alert)
+                        .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+
+                            public void onClick(DialogInterface dialog, int whichButton) {
+                                Intent intent = new Intent(Patient.this, AllPatients.class);
+                                intent.putExtra("CategoryName", CategoryName);
+                                intent.putExtra("FacilityName", FacilityName);
+                                startActivity(intent);
+                            }
+                        })
+                        .setNegativeButton(android.R.string.no, null).show();
+            } else {
+                Intent intent = new Intent(Patient.this, AllPatients.class);
+                intent.putExtra("CategoryName", CategoryName);
+                intent.putExtra("FacilityName", FacilityName);
+                startActivity(intent);
+            }
         }
         return super.onOptionsItemSelected(item);
     }
