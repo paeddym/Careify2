@@ -7,19 +7,15 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-
-import java.util.Map;
 
 public class Patient extends AppCompatActivity {
 
@@ -34,8 +30,8 @@ public class Patient extends AppCompatActivity {
     private String CategoryName;
     private String FacilityName;
 
-    private View fabEdit;
-    private View fabSave;
+    private FloatingActionButton fabEdit;
+    private FloatingActionButton fabSave;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,12 +39,12 @@ public class Patient extends AppCompatActivity {
         setContentView(R.layout.activity_patient);
         setSupportActionBar(findViewById(R.id.toolbarPatient));
 
+        fabEdit = findViewById(R.id.floatingActionButtonEdit);
+        fabSave = findViewById(R.id.floatingActionButtonSave);
+
         PatientName = getIntent().getStringExtra("PatientName");
         CategoryName = getIntent().getStringExtra("CategoryName");
         FacilityName = getIntent().getStringExtra("FacilityName");
-
-        fabEdit = findViewById(R.id.floatingActionButtonEdit);
-        fabSave = findViewById(R.id.floatingActionButtonSave);
 
         if (getSupportActionBar() != null){
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -104,17 +100,17 @@ public class Patient extends AppCompatActivity {
                                 });
     }
 
-    public void toggleEdit(){
-        if(inEditMode){
+    public void toggleEdit(View view) {
+        if(!inEditMode) {
             fabEdit.setVisibility(View.GONE);
             fabSave.setVisibility(View.VISIBLE);
-            inEditMode = !inEditMode;
         } else {
             fabEdit.setVisibility(View.VISIBLE);
             fabSave.setVisibility(View.GONE);
-            inEditMode = !inEditMode;
         }
+        inEditMode = !inEditMode;
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();

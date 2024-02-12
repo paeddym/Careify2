@@ -155,10 +155,10 @@
         android:id="@+id/floatingActionButtonEdit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
-        android:clickable="true"
+        android:layout_marginEnd="44dp"
+        android:layout_marginBottom="44dp"
         android:backgroundTint="@color/primary"
+        android:clickable="true"
         android:onClick="toggleEdit"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -168,15 +168,14 @@
         android:id="@+id/floatingActionButtonSave"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
-        android:clickable="true"
+        android:layout_marginEnd="44dp"
+        android:layout_marginBottom="44dp"
         android:backgroundTint="@color/primary"
-        android:onClick="toggleEdit"
+        android:clickable="true"
         android:visibility="gone"
+        android:onClick="toggleEdit"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@android:drawable/ic_menu_edit" />
-
+        app:srcCompat="@android:drawable/ic_menu_save" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
