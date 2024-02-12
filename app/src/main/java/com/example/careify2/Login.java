@@ -1,5 +1,6 @@
 package com.example.careify2;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -8,6 +9,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -49,6 +51,12 @@ public class Login extends AppCompatActivity {
                             } else {
                                 Toast.makeText(Login.this, "Facility is not registered!", Toast.LENGTH_SHORT).show();
                             }
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(Login.this, "No connection to Database!", Toast.LENGTH_SHORT).show();
                         }
                     });
         }

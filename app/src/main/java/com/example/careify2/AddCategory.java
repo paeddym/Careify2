@@ -57,7 +57,6 @@ public class AddCategory extends AppCompatActivity {
                             .addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
                                 public void onSuccess(Void unused) {
-                                    Toast.makeText(AddCategory.this, "Success!", Toast.LENGTH_SHORT).show();
                                     Intent intent = new Intent(AddCategory.this, Category.class);
                                     intent.putExtra("FacilityName", facilityName);
                                     startActivity(intent);
@@ -65,7 +64,7 @@ public class AddCategory extends AppCompatActivity {
                             }).addOnFailureListener(new OnFailureListener() {
                                 @Override
                                 public void onFailure(@NonNull Exception e) {
-                                    Toast.makeText(AddCategory.this, "Failure!", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(AddCategory.this, "No connection to Database!", Toast.LENGTH_SHORT).show();
                                 }
                             });
                 }
