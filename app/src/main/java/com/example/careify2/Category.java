@@ -34,9 +34,6 @@ public class Category extends AppCompatActivity implements RecyclerViewInterface
 
     private static final String KEY_NAME = "Name";
 
-    private CollectionReference collectionReference = db.collection("Facility").document("Paulinenstift")
-            .collection("Category");
-
     private String[] allCategories;
     private String facilityName;
     Category_RecyclerViewAdapter adapter;
@@ -48,7 +45,7 @@ public class Category extends AppCompatActivity implements RecyclerViewInterface
         setSupportActionBar(findViewById(R.id.toolbarCategory));
 
         facilityName = getIntent().getStringExtra("FacilityName");
-        loadCategoryNames(collectionReference);
+        loadCategoryNames();
 
         FloatingActionButton fab;
         fab = (FloatingActionButton) findViewById(R.id.floatingActionButtonCategory);
@@ -68,8 +65,9 @@ public class Category extends AppCompatActivity implements RecyclerViewInterface
         getSupportActionBar().setTitle(R.string.category);
     }
 
-    public void loadCategoryNames(CollectionReference collectionReference){
-        collectionReference.get()
+    public void loadCategoryNames(){
+        db.collection("Facility").document(facilityName)
+                .collection("Category").get()
                 .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                     @Override
                     public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
