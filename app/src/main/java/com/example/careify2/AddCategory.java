@@ -50,22 +50,29 @@ public class AddCategory extends AppCompatActivity {
         findViewById(R.id.addCategoryButton).setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
                 String name = editTextName.getText().toString();
-                Map<String, Object> category = new HashMap<>();
-                category.put(KEY_NAME, name);
+                if(name.equals("")) {
+                    Toast.makeText(AddCategory.this, "Please enter the new category's name!", Toast.LENGTH_SHORT).show();
+                } else {
+                    Map<String, Object> category = new HashMap<>();
+                    category.put(KEY_NAME, name);
+                
 
-                db.collection("Facility").document("Paulinenstift")
-                        .collection("Category").document(name).set(category)
-                        .addOnSuccessListener(new OnSuccessListener<Void>() {
-                            @Override
-                            public void onSuccess(Void unused) {
-                                Toast.makeText(AddCategory.this, "Success!", Toast.LENGTH_SHORT).show();
-                            }
-                        }).addOnFailureListener(new OnFailureListener() {
-                            @Override
-                            public void onFailure(@NonNull Exception e) {
-                                Toast.makeText(AddCategory.this, "Failure!", Toast.LENGTH_SHORT).show();
-                            }
-                        });
+                    db.collection("Facility").document("Paulinenstift")
+                            .collection("Category").document(name).set(category)
+                            .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void unused) {
+                                    Toast.makeText(AddCategory.this, "Success!", Toast.LENGTH_SHORT).show();
+                                    Intent intent = new Intent(AddCategory.this, Category.class);
+                                    startActivity(intent);
+                                }
+                            }).addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    Toast.makeText(AddCategory.this, "Failure!", Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                }
             }
         });
     }

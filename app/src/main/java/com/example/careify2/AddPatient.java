@@ -69,6 +69,9 @@ public class AddPatient extends AppCompatActivity {
         String diagnosis = editTextDiagnosis.getText().toString();
         String medication = editTextMedication.getText().toString();
 
+        if(name.equals("")) {
+            Toast.makeText(this, "Please enter the Patient's name!", Toast.LENGTH_SHORT).show();
+        } else {
         Map<String, Object> patient = new HashMap<>();
         patient.put(KEY_NAME, name);
         patient.put(KEY_AGE, age);
@@ -83,6 +86,9 @@ public class AddPatient extends AppCompatActivity {
                     @Override
                     public void onSuccess(Void unused) {
                         Toast.makeText(AddPatient.this, "Success!", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(AddPatient.this, AllPatients.class);
+                        intent.putExtra("CategoryName", CategoryName);
+                        startActivity(intent);
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
@@ -90,6 +96,7 @@ public class AddPatient extends AppCompatActivity {
                         Toast.makeText(AddPatient.this, "Failure!", Toast.LENGTH_SHORT).show();
                     }
                 });
+        }
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
