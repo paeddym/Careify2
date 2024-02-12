@@ -65,6 +65,7 @@ public class AddCategory extends AppCompatActivity {
                                 public void onSuccess(Void unused) {
                                     Toast.makeText(AddCategory.this, "Success!", Toast.LENGTH_SHORT).show();
                                     Intent intent = new Intent(AddCategory.this, Category.class);
+                                    intent.putExtra("FacilityName", facilityName);
                                     startActivity(intent);
                                 }
                             }).addOnFailureListener(new OnFailureListener() {
@@ -95,7 +96,9 @@ public class AddCategory extends AppCompatActivity {
         }
 
         if (id == android.R.id.home) {
-            startActivity(new Intent(AddCategory.this, Category.class));
+            Intent intent = new Intent(AddCategory.this, Category.class);
+            intent.putExtra("FacilityName", facilityName);
+            startActivity(intent);
         }
         return super.onOptionsItemSelected(item);
     }
