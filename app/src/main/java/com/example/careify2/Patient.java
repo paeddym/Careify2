@@ -47,14 +47,14 @@ public class Patient extends AppCompatActivity {
 
         getSupportActionBar().setTitle(PatientName);
 
-        loadPatientOnCreate(PatientName);
+        loadPatientOnCreate();
 
     }
 
-    public void loadPatientOnCreate(String patientName){                                                                //Facility und Category muss Variabel sein
+    public void loadPatientOnCreate(){
         DocumentReference documentRef = db.collection("Facility").document("Paulinenstift")
                 .collection("Category").document("1OG")
-                .collection("Patient").document(patientName);
+                .collection("Patient").document(PatientName);
         documentRef.get()
                         .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                             @Override
