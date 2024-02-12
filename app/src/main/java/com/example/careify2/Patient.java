@@ -107,11 +107,6 @@ public class Patient extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
-        if (id == R.id.app_bar_settings) {
-            Snackbar.make(findViewById(android.R.id.content), R.string.to_be_implemented, Snackbar.LENGTH_SHORT).show();
-            return true;
-        }
-
         if (id == android.R.id.home) {
             Intent intent = new Intent(Patient.this, AllPatients.class);
             intent.putExtra("CategoryName", CategoryName);

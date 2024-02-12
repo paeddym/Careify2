@@ -149,10 +149,6 @@ public class Category extends AppCompatActivity implements RecyclerViewInterface
             Snackbar.make(findViewById(android.R.id.content), R.string.to_be_implemented, Snackbar.LENGTH_SHORT).show();
             return true;
         }
-        if (id == R.id.app_bar_settings) {
-            Snackbar.make(findViewById(android.R.id.content), R.string.to_be_implemented, Snackbar.LENGTH_SHORT).show();
-            return true;
-        }
 
         if (id == android.R.id.home) {
             startActivity(new Intent(Category.this, Login.class));
