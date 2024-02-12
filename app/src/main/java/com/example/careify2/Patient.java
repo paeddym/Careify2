@@ -19,6 +19,9 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Patient extends AppCompatActivity {
 
     ImageView imageView;
@@ -146,7 +149,6 @@ public class Patient extends AppCompatActivity {
         } else {
             fabEdit.setVisibility(View.VISIBLE);
             fabSave.setVisibility(View.GONE);
-            saveChanges();
             currentName.setVisibility(View.VISIBLE);
             currentAge.setVisibility(View.VISIBLE);
             currentRoom.setVisibility(View.VISIBLE);
@@ -157,12 +159,59 @@ public class Patient extends AppCompatActivity {
             editTextRoom.setVisibility(View.GONE);
             editTextDiagnosis.setVisibility(View.GONE);
             editTextMedication.setVisibility(View.GONE);
+            saveChanges();
         }
         inEditMode = !inEditMode;
     }
 
     public void saveChanges(){
+        String newName = editTextName.getText().toString();
+        String newAge = editTextAge.getText().toString();
+        String newRoom = editTextRoom.getText().toString();
+        String newDiagnosis = editTextDiagnosis.getText().toString();
+        String newMedication = editTextMedication.getText().toString();
 
+        if(newName.equals("")) {
+            Toast.makeText(this, "Please enter the Patient's name!", Toast.LENGTH_SHORT).show();
+        } else {
+            Map<String, Object> patient = new HashMap<>();
+            patient.put(KEY_NAME, newName);
+            patient.put(KEY_AGE, newAge);
+            patient.put(KEY_ROOM, newRoom);
+            patient.put(KEY_DIAGNOSIS, newDiagnosis);
+            patient.put(KEY_MEDICATION, newMedication);
+
+            db.collection("Facility").document(FacilityName)
+                    .collection("Category").document(CategoryName)
+                    .collection("Patient").document(PatientName).delete()
+                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void unused) {
+                            Toast.makeText(Patient.this, "Old Patient removed!", Toast.LENGTH_SHORT).show();
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+
+                        }
+                    });
+
+            db.collection("Facility").document(FacilityName)
+                    .collection("Category").document(CategoryName)
+                    .collection("Patient").document(newName).set(patient)
+                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void unused) {
+                            Toast.makeText(Patient.this, "Success!", Toast.LENGTH_SHORT).show();
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(Patient.this, "Failure!", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+        }
     }
 
     @Override
