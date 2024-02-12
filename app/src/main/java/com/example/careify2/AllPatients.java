@@ -95,8 +95,7 @@ public class AllPatients extends AppCompatActivity implements RecyclerViewInterf
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(AllPatients.this, "Failed to reach Database!", Toast.LENGTH_SHORT).show();
-                    }
+                        Toast.makeText(AllPatients.this, R.string.noConnection, Toast.LENGTH_SHORT).show();                    }
                 });
     }
 
@@ -181,7 +180,7 @@ public class AllPatients extends AppCompatActivity implements RecyclerViewInterf
                                     public void onSuccess(Void unused) {
                                         patientModels.remove(position);
                                         adapter.notifyItemRemoved(position);
-                                        Toast.makeText(AllPatients.this, "Patient removed!", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(AllPatients.this, R.string.patientRemoved, Toast.LENGTH_SHORT).show();
                                     }
                                 })
                                 .addOnFailureListener(new OnFailureListener() {

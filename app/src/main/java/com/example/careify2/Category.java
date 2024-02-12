@@ -94,8 +94,7 @@ public class Category extends AppCompatActivity implements RecyclerViewInterface
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(Category.this, R.string.loadedCategory, Toast.LENGTH_SHORT).show();
-                    }
+                        Toast.makeText(Category.this, R.string.noConnection, Toast.LENGTH_SHORT).show();                    }
                 });
     }
 

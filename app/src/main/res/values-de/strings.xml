@@ -22,9 +22,8 @@
     <string name="noConnection">"Keine Verbindung zur Datenbank!"</string>
     <string name="enterCategory">"Bitte Namen des Bereichs angeben"</string>
     <string name="enterPatient">"Bitte Namen des Patienten angeben!"</string>
-
-    <string name="loadedCategory">"Bereiche geladen!"</string>
     <string name="categoryRemoved">"Bereich entfernt!"</string>
+    <string name="patientRemoved">"Patient entfernt!"</string>
 
     <string name="name">Name</string>
     <string name="age">Alter</string>

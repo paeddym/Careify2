@@ -22,9 +22,9 @@
     <string name="noConnection">"No connection to Database!"</string>
     <string name="enterCategory">"Please enter the new category's name!"</string>
     <string name="enterPatient">"Please enter the patient's name!"</string>
-
-    <string name="loadedCategory">"Loaded Categories!"</string>
     <string name="categoryRemoved">"Category removed!"</string>
+    <string name="patientRemoved">"Patient removed!"</string>
+
 
     <string name="name">Név</string>
     <string name="age">Kor</string>
