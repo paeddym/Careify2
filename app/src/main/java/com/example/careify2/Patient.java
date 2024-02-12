@@ -104,11 +104,21 @@ public class Patient extends AppCompatActivity {
         if(!inEditMode) {
             fabEdit.setVisibility(View.GONE);
             fabSave.setVisibility(View.VISIBLE);
+            editPatientInfo();
         } else {
             fabEdit.setVisibility(View.VISIBLE);
             fabSave.setVisibility(View.GONE);
+            saveChanges();
         }
         inEditMode = !inEditMode;
+    }
+
+    public void editPatientInfo(){
+
+    }
+
+    public void saveChanges(){
+
     }
 
     @Override

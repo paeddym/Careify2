@@ -16,16 +16,28 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/avatars" />
 
+
     <TextView
-        android:id="@+id/patientMedication"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="144dp"
-        android:layout_marginTop="352dp"
-        android:ems="10"
-        android:text="Ibuprofen"
-        android:textColor="#8E8E8E"
-        android:textSize="14sp"
+        android:id="@+id/patientNameText"
+        android:layout_width="60dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="110dp"
+        android:text="@string/name"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        android:layout_marginStart="170dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/patientAgeText"
+        android:layout_width="60dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="170dp"
+        android:layout_marginTop="160dp"
+        android:text="@string/age"
+        android:textColor="#000000"
+        android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -54,6 +66,18 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:id="@+id/patientMedicationText"
+        android:layout_width="115dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="350dp"
+        android:text="@string/medication"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
         android:id="@+id/patientName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -64,18 +88,6 @@
         android:textColor="#8E8E8E"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/patientAgeText"
-        android:layout_width="60dp"
-        android:layout_height="24dp"
-        android:layout_marginStart="170dp"
-        android:layout_marginTop="160dp"
-        android:text="@string/age"
-        android:textColor="#000000"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -92,26 +104,15 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/patientMedicationText"
-        android:layout_width="115dp"
-        android:layout_height="24dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="350dp"
-        android:text="@string/medication"
-        android:textColor="#000000"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/patientNameText"
-        android:layout_width="60dp"
-        android:layout_height="24dp"
-        android:layout_marginTop="110dp"
-        android:text="@string/name"
-        android:textColor="#000000"
-        android:textSize="16sp"
-        android:layout_marginStart="170dp"
+        android:id="@+id/patientRoom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="144dp"
+        android:layout_marginTop="252dp"
+        android:ems="10"
+        android:text="12345"
+        android:textColor="#8E8E8E"
+        android:textSize="14sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -129,13 +130,13 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/patientRoom"
+        android:id="@+id/patientMedication"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="144dp"
-        android:layout_marginTop="252dp"
+        android:layout_marginTop="352dp"
         android:ems="10"
-        android:text="12345"
+        android:text="Ibuprofen"
         android:textColor="#8E8E8E"
         android:textSize="14sp"
         app:layout_constraintStart_toStartOf="parent"
