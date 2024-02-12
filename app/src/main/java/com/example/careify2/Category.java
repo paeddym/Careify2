@@ -29,13 +29,12 @@ public class Category extends AppCompatActivity implements RecyclerViewInterface
 
     ArrayList<CategoryModel> categoryModels = new ArrayList<>();
 
-    private FirebaseFirestore db = FirebaseFirestore.getInstance();
-
     private static final String KEY_NAME = "Name";
 
     private String[] allCategories;
     private String facilityName;
     Category_RecyclerViewAdapter adapter;
+    final FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +43,7 @@ public class Category extends AppCompatActivity implements RecyclerViewInterface
         setSupportActionBar(findViewById(R.id.toolbarCategory));
 
         facilityName = getIntent().getStringExtra("FacilityName");
+
         loadCategoryNames();
 
         FloatingActionButton fab;
@@ -80,7 +80,6 @@ public class Category extends AppCompatActivity implements RecyclerViewInterface
                             allCategories[i] = documentSnapshot.getString(KEY_NAME);
                             i++;
                         }
-                        Toast.makeText(Category.this, "Loaded Categories!", Toast.LENGTH_SHORT).show();
 
                         RecyclerView recyclerView = findViewById(R.id.Bereiche);
                         setCategoryModels(allCategories);
