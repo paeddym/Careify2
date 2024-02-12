@@ -53,7 +53,7 @@ public class Patient extends AppCompatActivity {
 
     public void loadPatientOnCreate(){
         DocumentReference documentRef = db.collection("Facility").document("Paulinenstift")
-                .collection("Category").document("1OG")
+                .collection("Category").document(CategoryName)
                 .collection("Patient").document(PatientName);
         documentRef.get()
                         .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
