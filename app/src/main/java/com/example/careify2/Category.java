@@ -167,6 +167,24 @@ public class Category extends AppCompatActivity implements RecyclerViewInterface
 
     @Override
     public void onItemLongClick(int position) {
+        String itemToDelete = categoryModels.get(position).getBereichName();
+        db.collection("Facility").document(facilityName)
+                .collection("Category").document(itemToDelete).delete()
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+                        categoryModels.remove(position);
+                        adapter.notifyItemRemoved(position);
+                        Toast.makeText(Category.this, "Category removed!", Toast.LENGTH_SHORT).show();
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+
+                    }
+                });
 
     }
+
 }
