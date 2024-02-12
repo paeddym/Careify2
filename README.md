@@ -2,11 +2,10 @@ Gruppenmitglieder: Can Dogan, Patrik Marosváry (36043)
 
 TODO:
 Must have:
-- Intents vervollständigen
-- Login
+- Facility hinzufügen implementieren
+- Facility über Intents mitgeben
 - Edit/Löschen bei PatientActivity implementieren
-- Suchleiste
-- Platzhalter nicht tatsächlich Text sein lassen
+- Suchleiste einfügen
 - Delete Category implementieren
 
 Nice to have:
