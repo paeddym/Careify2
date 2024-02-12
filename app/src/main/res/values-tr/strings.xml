@@ -12,8 +12,8 @@
     <string name="facility">Şirket</string>
     <string name="password">Şifre</string>
     <string name="loginMessage">Giriş yapmanız icin, bize bu E-mail adresine basvuru yapınız:\n\nxileff.muster@gmail.com</string>
-    <string name="logout">To get login credentials, please contact us at :\n\nxileff.muster@gmail.com</string>
-    <string name="logoutConfirm">To get login credentials, please contact us at :\n\nxileff.muster@gmail.com</string>
+    <string name="logout">Oturum kapatmak</string>
+    <string name="logoutConfirm">Oturumu kapatmak istiyormusunuz?</string>
 
     <string name="name">Ad</string>
     <string name="age">Yaş</string>
