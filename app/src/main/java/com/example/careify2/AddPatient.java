@@ -108,7 +108,9 @@ public class AddPatient extends AppCompatActivity {
         }
 
         if (id == android.R.id.home) {
-            startActivity(new Intent(AddPatient.this, AllPatients.class));
+            Intent intent = new Intent(AddPatient.this, AllPatients.class);
+            intent.putExtra("CategoryName", CategoryName);
+            startActivity(intent);
         }
         return super.onOptionsItemSelected(item);
     }

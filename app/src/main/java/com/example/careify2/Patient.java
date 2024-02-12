@@ -28,13 +28,17 @@ public class Patient extends AppCompatActivity {
     private static final String KEY_MEDICATION = "Medikation";
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
 
+    private String PatientName;
+    private String CategoryName;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_patient);
         setSupportActionBar(findViewById(R.id.toolbarPatient));
 
-        String PatientName = getIntent().getStringExtra("PatientName");             //Facility und Category muss auch übergeben werden
+        PatientName = getIntent().getStringExtra("PatientName");
+        CategoryName = getIntent().getStringExtra("CategoryName");
 
         if (getSupportActionBar() != null){
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -115,7 +119,9 @@ public class Patient extends AppCompatActivity {
         }
 
         if (id == android.R.id.home) {
-            startActivity(new Intent(Patient.this, AllPatients.class));
+            Intent intent = new Intent(Patient.this, AllPatients.class);
+            intent.putExtra("CategoryName", CategoryName);
+            startActivity(intent);
         }
         return super.onOptionsItemSelected(item);
     }

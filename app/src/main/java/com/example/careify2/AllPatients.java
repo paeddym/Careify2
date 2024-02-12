@@ -134,6 +134,7 @@ public class AllPatients extends AppCompatActivity implements RecyclerViewInterf
     public void onCardClick(int position) {
         Intent intent = new Intent(AllPatients.this, Patient.class);
         intent.putExtra("PatientName", patientModels.get(position).PatientName);
+        intent.putExtra("CategoryName", CategoryName);
         startActivity(intent);
     }
 }
