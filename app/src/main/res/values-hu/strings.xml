@@ -16,23 +16,23 @@
     <string name="age">Kor</string>
     <string name="room">Szoba</string>
     <string name="diagnosis">Diagnózis</string>
-    <string name="medication">Gyogyszerek</string>
+    <string name="medication">Gyógyszerek</string>
     <string name="category">Kategória</string>
     <string name="patients">Paciensek</string>
-    <string name="patient">Patiens</string>
+    <string name="patient">Paciens</string>
 
-    <string name="add_category">Bereich hinzufügen</string>
-    <string name="add_patient">Patient hinzufügen</string>
-    <string name="add">Hinzufügen</string>
+    <string name="add_category">Új kategória</string>
+    <string name="add_patient">Új paciens</string>
+    <string name="add">Hozzáadás</string>
 
-    <string name="enter_facility">Einrichtung eingeben</string>
-    <string name="enter_password">Passwort eingeben</string>
-    <string name="enter_category">Neuen Bereich eingeben</string>
+    <string name="enter_facility">Cég megadása</string>
+    <string name="enter_password">Paszkód megadása</string>
+    <string name="enter_category">Kategória megadása</string>
 
-    <string name="enter_name">Name eingeben</string>
-    <string name="enter_age">Alter eingeben</string>
-    <string name="enter_room">Raum eingeben</string>
-    <string name="enter_medication">Medikamente eingeben</string>
-    <string name="enter_diagnosis">Diagnose eingeben</string>
+    <string name="enter_name">Név megadása</string>
+    <string name="enter_age">Kor megadása</string>
+    <string name="enter_room">Szoba megadása</string>
+    <string name="enter_medication">Gyógyszerek megadása</string>
+    <string name="enter_diagnosis">Diagnózis megadása</string>
 
 </resources>
