@@ -11,6 +11,8 @@
     <string name="facility">Cég</string>
     <string name="password">Passkód</string>
     <string name="loginMessage">Hassználathoz tájékozódjon a követendö címmel:\n\nxileff.muster@gmail.com</string>
+    <string name="logout">Kijelentkezés</string>
+    <string name="logoutConfirm">Biztos a kijelentkezésben?</string>
 
     <string name="name">Név</string>
     <string name="age">Kor</string>

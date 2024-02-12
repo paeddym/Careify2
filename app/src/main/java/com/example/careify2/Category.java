@@ -155,8 +155,8 @@ public class Category extends AppCompatActivity implements RecyclerViewInterface
 
         if (id == android.R.id.home) {
             new AlertDialog.Builder(this)
-                    .setTitle("Logout")
-                    .setMessage("Do you really want to log out?")
+                    .setTitle(R.string.logout)
+                    .setMessage(R.string.logoutConfirm)
                     .setIcon(android.R.drawable.ic_dialog_alert)
                     .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
 
