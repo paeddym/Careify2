@@ -31,15 +31,10 @@ import java.util.List;
 public class AllPatients extends AppCompatActivity implements RecyclerViewInterface{
 
     ArrayList<PatientModel> patientModels = new ArrayList<>();
-
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
-
     private static final String KEY_NAME = "Name";
-
-    private CollectionReference collectionReference = db.collection("Facility").document("Paulinenstift")
-            .collection("Category").document("1OG").collection("Patient");
-
-
+    private String CategoryName;
+    private CollectionReference collectionReference;
 
     private String[] allPatients;
 
@@ -48,11 +43,10 @@ public class AllPatients extends AppCompatActivity implements RecyclerViewInterf
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_all_patients);
         setSupportActionBar(findViewById(R.id.toolbarAllPatients));
-
+        CategoryName = getIntent().getStringExtra("CategoryName");
+        collectionReference = db.collection("Facility").document("Paulinenstift")
+                .collection("Category").document(CategoryName).collection("Patient");
         loadPatientNames(collectionReference);
-
-        String CategoryName = getIntent().getStringExtra("CategoryName");
-
         FloatingActionButton fab;
         fab = (FloatingActionButton) findViewById(R.id.floatingActionButtonAllPatients);
         fab.setOnClickListener(new View.OnClickListener(){
