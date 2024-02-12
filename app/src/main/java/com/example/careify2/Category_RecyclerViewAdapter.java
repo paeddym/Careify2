@@ -40,6 +40,12 @@ public class Category_RecyclerViewAdapter extends RecyclerView.Adapter<Category_
         return categoryModels.size();
     }
 
+    public void filteredList(ArrayList<CategoryModel> filteredList){
+        categoryModels = filteredList;
+        notifyDataSetChanged();
+
+    }
+
     public static class MyViewHolder extends RecyclerView.ViewHolder {
         TextView bereichName;
         public MyViewHolder(@NonNull View itemView, RecyclerViewInterface recyclerViewInterface) {

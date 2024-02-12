@@ -13,6 +13,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -37,6 +38,8 @@ public class AllPatients extends AppCompatActivity implements RecyclerViewInterf
     private CollectionReference collectionReference;
 
     private String[] allPatients;
+
+    Patient_RecyclerViewAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,7 +88,7 @@ public class AllPatients extends AppCompatActivity implements RecyclerViewInterf
                         Toast.makeText(AllPatients.this, "Loaded Patients!", Toast.LENGTH_SHORT).show();
                         setPatientModels(allPatients);
                         RecyclerView recyclerView = findViewById(R.id.Patients);
-                        Patient_RecyclerViewAdapter adapter = new Patient_RecyclerViewAdapter(AllPatients.this, patientModels, AllPatients.this);
+                        adapter = new Patient_RecyclerViewAdapter(AllPatients.this, patientModels, AllPatients.this);
                         recyclerView.setAdapter(adapter);
                         recyclerView.setLayoutManager(new LinearLayoutManager(AllPatients.this));
                     }
@@ -106,10 +109,40 @@ public class AllPatients extends AppCompatActivity implements RecyclerViewInterf
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.search_menu, menu);
-        return true;
+    public boolean onCreateOptionsMenu(Menu menu){
+        getMenuInflater().inflate(R.menu.search_menu, menu);
+
+        MenuItem menuItem = menu.findItem(R.id.app_bar_search);
+        SearchView searchView = (SearchView) menuItem.getActionView();
+        searchView.setQueryHint("Type here");
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                filter(newText.toString());
+
+                return true;
+            }
+        });
+
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    private void filter(String text) {
+        ArrayList<PatientModel> filteredList = new ArrayList<>();
+
+        for(PatientModel model : patientModels){
+            if(model.PatientName.toLowerCase().contains(text.toLowerCase())){
+                filteredList.add(model);
+            }
+        }
+        adapter.filteredList(filteredList);
+
     }
 
     @Override
