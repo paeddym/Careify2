@@ -29,7 +29,7 @@
     <string name="add_category">Bölümü kayıtla</string>
     <string name="add_patient">Müşteriyi kayıtla</string>
     <string name="add">Kayıtla</string>
-    <string name="discard">Reddetmek</string>
+    <string name="discard">Reddet</string>
     <string name="discardConfirm">Değişimı reddetmek istiyormusunuz?</string>
 
     <string name="enter_facility">Şirketı belirt</string>
