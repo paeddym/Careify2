@@ -34,24 +34,19 @@ public class Patient extends AppCompatActivity {
     private static final String KEY_ROOM = "Raum";
     private static final String KEY_DIAGNOSIS = "Diagnose";
     private static final String KEY_MEDICATION = "Medikation";
-    private String name;
-    private String age;
-    private String room;
-    private String diagnosis;
-    private String medication;
-    private FirebaseFirestore db = FirebaseFirestore.getInstance();
-    private boolean inEditMode = false;
+    private String databaseName;
+    private String databaseAge;
+    private String databaseRoom;
+    private String databaseDiagnosis;
+    private String databaseMedication;
+
     private String PatientName;
     private String CategoryName;
     private String FacilityName;
 
     private FloatingActionButton fabEdit;
     private FloatingActionButton fabSave;
-    private EditText editTextName;
-    private EditText editTextAge;
-    private EditText editTextRoom;
-    private EditText editTextDiagnosis;
-    private EditText editTextMedication;
+    private boolean inEditMode = false;
 
     private TextView currentName;
     private TextView currentAge;
@@ -59,6 +54,13 @@ public class Patient extends AppCompatActivity {
     private TextView currentDiagnosis;
     private TextView currentMedication;
 
+    private EditText editTextName;
+    private EditText editTextAge;
+    private EditText editTextRoom;
+    private EditText editTextDiagnosis;
+    private EditText editTextMedication;
+
+    final FirebaseFirestore db = FirebaseFirestore.getInstance();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -80,11 +82,12 @@ public class Patient extends AppCompatActivity {
         editTextDiagnosis = findViewById(R.id.patientDiagnosisEdit);
         editTextMedication = findViewById(R.id.patientMedicationEdit);
 
+        imageView=findViewById(R.id.imgPatient);
+        imageView.setImageResource(R.drawable.passant);
+
         PatientName = getIntent().getStringExtra("PatientName");
         CategoryName = getIntent().getStringExtra("CategoryName");
         FacilityName = getIntent().getStringExtra("FacilityName");
-        imageView=findViewById(R.id.imgPatient);
-        imageView.setImageResource(R.drawable.passant);
 
         if (getSupportActionBar() != null){
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -98,44 +101,42 @@ public class Patient extends AppCompatActivity {
     }
 
     public void loadPatientOnCreate(){
-        DocumentReference documentRef = db.collection("Facility").document(FacilityName)
+        db.collection("Facility").document(FacilityName)
                 .collection("Category").document(CategoryName)
-                .collection("Patient").document(PatientName);
-        documentRef.get()
+                .collection("Patient").document(PatientName).get()
                         .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                             @Override
                             public void onSuccess(DocumentSnapshot documentSnapshot) {
                                 if(documentSnapshot.exists()){
 
-                                    name = documentSnapshot.getString(KEY_NAME);
-                                    age = documentSnapshot.getString(KEY_AGE);
-                                    room = documentSnapshot.getString(KEY_ROOM);
-                                    diagnosis = documentSnapshot.getString(KEY_DIAGNOSIS);
-                                    medication = documentSnapshot.getString(KEY_MEDICATION);
+                                    databaseName = documentSnapshot.getString(KEY_NAME);
+                                    databaseAge = documentSnapshot.getString(KEY_AGE);
+                                    databaseRoom = documentSnapshot.getString(KEY_ROOM);
+                                    databaseDiagnosis = documentSnapshot.getString(KEY_DIAGNOSIS);
+                                    databaseMedication = documentSnapshot.getString(KEY_MEDICATION);
 
-                                    currentName.setText(name);
-                                    currentAge.setText(age);
-                                    currentRoom.setText(room);
-                                    currentDiagnosis.setText(diagnosis);
-                                    currentMedication.setText(medication);
+                                    currentName.setText(databaseName);
+                                    currentAge.setText(databaseAge);
+                                    currentRoom.setText(databaseRoom);
+                                    currentDiagnosis.setText(databaseDiagnosis);
+                                    currentMedication.setText(databaseMedication);
 
-                                    editTextName.setText(name, TextView.BufferType.EDITABLE);
-                                    editTextAge.setText(age, TextView.BufferType.EDITABLE);
-                                    editTextRoom.setText(room, TextView.BufferType.EDITABLE);
-                                    editTextDiagnosis.setText(diagnosis, TextView.BufferType.EDITABLE);
-                                    editTextMedication.setText(medication, TextView.BufferType.EDITABLE);
+                                    editTextName.setText(databaseName, TextView.BufferType.EDITABLE);
+                                    editTextAge.setText(databaseAge, TextView.BufferType.EDITABLE);
+                                    editTextRoom.setText(databaseRoom, TextView.BufferType.EDITABLE);
+                                    editTextDiagnosis.setText(databaseDiagnosis, TextView.BufferType.EDITABLE);
+                                    editTextMedication.setText(databaseMedication, TextView.BufferType.EDITABLE);
 
                                 } else {
                                     Toast.makeText(Patient.this, "Patient doesn't exist!", Toast.LENGTH_SHORT).show();
 
                                 }
-                                Toast.makeText(Patient.this, "Patient loaded!", Toast.LENGTH_SHORT).show();
                             }
                         })
                                 .addOnFailureListener(new OnFailureListener() {
                                     @Override
                                     public void onFailure(@NonNull Exception e) {
-                                        Toast.makeText(Patient.this, "Failure!", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(Patient.this, "Database could not be reached!", Toast.LENGTH_SHORT).show();
                                     }
                                 });
     }
@@ -144,11 +145,13 @@ public class Patient extends AppCompatActivity {
         if(!inEditMode) {
             fabEdit.setVisibility(View.GONE);
             fabSave.setVisibility(View.VISIBLE);
+
             currentName.setVisibility(View.GONE);
             currentAge.setVisibility(View.GONE);
             currentRoom.setVisibility(View.GONE);
             currentDiagnosis.setVisibility(View.GONE);
             currentMedication.setVisibility(View.GONE);
+
             editTextName.setVisibility(View.VISIBLE);
             editTextAge.setVisibility(View.VISIBLE);
             editTextRoom.setVisibility(View.VISIBLE);
@@ -258,11 +261,11 @@ public class Patient extends AppCompatActivity {
         int id = item.getItemId();
 
         if (id == android.R.id.home) {
-            if(inEditMode   || !name.equals(editTextName.getText().toString())
-                            || !age.equals(editTextAge.getText().toString())
-                            || !room.equals(editTextRoom.getText().toString())
-                            || !diagnosis.equals(editTextDiagnosis.getText().toString())
-                            || !medication.equals(editTextMedication.getText().toString())) {
+            if(inEditMode   || !databaseName.equals(editTextName.getText().toString())                      //if any change has been made, confirm discard
+                            || !databaseAge.equals(editTextAge.getText().toString())
+                            || !databaseRoom.equals(editTextRoom.getText().toString())
+                            || !databaseDiagnosis.equals(editTextDiagnosis.getText().toString())
+                            || !databaseMedication.equals(editTextMedication.getText().toString())) {
                 new AlertDialog.Builder(this)
                         .setTitle(R.string.discard)
                         .setMessage(R.string.discardConfirm)
@@ -270,20 +273,21 @@ public class Patient extends AppCompatActivity {
                         .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
 
                             public void onClick(DialogInterface dialog, int whichButton) {
-                                Intent intent = new Intent(Patient.this, AllPatients.class);
-                                intent.putExtra("CategoryName", CategoryName);
-                                intent.putExtra("FacilityName", FacilityName);
-                                startActivity(intent);
+                                returnToCategory();
                             }
                         })
                         .setNegativeButton(android.R.string.no, null).show();
             } else {
-                Intent intent = new Intent(Patient.this, AllPatients.class);
-                intent.putExtra("CategoryName", CategoryName);
-                intent.putExtra("FacilityName", FacilityName);
-                startActivity(intent);
+                returnToCategory();
             }
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    public void returnToCategory(){
+        Intent intent = new Intent(Patient.this, AllPatients.class);
+        intent.putExtra("CategoryName", CategoryName);
+        intent.putExtra("FacilityName", FacilityName);
+        startActivity(intent);
     }
 }
