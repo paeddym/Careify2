@@ -21,6 +21,8 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.HashMap;
 import java.util.Map;
 
+
+
 public class AddPatient extends AppCompatActivity {
 
     private static final String KEY_NAME = "Name";
@@ -28,7 +30,7 @@ public class AddPatient extends AppCompatActivity {
     private static final String KEY_ROOM = "Raum";
     private static final String KEY_DIAGNOSIS = "Diagnose";
     private static final String KEY_MEDICATION = "Medikation";
-
+    private String CategoryName;
     private EditText editTextName;
     private EditText editTextAge;
     private EditText editTextRoom;
@@ -50,6 +52,8 @@ public class AddPatient extends AppCompatActivity {
         }
 
         getSupportActionBar().setTitle(R.string.add_patient);
+
+        CategoryName = getIntent().getStringExtra("CategoryName");
 
         editTextName = findViewById(R.id.addPatientName);
         editTextAge = findViewById(R.id.addPatientAge);
@@ -73,7 +77,7 @@ public class AddPatient extends AppCompatActivity {
         patient.put(KEY_MEDICATION, medication);
 
         db.collection("Facility").document("Paulinenstift")
-                .collection("Category").document("1OG")
+                .collection("Category").document(CategoryName)
                 .collection("Patient").document(name).set(patient)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override

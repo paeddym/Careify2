@@ -43,15 +43,19 @@ public class AllPatients extends AppCompatActivity implements RecyclerViewInterf
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_all_patients);
         setSupportActionBar(findViewById(R.id.toolbarAllPatients));
+
         CategoryName = getIntent().getStringExtra("CategoryName");
         collectionReference = db.collection("Facility").document("Paulinenstift")
                 .collection("Category").document(CategoryName).collection("Patient");
         loadPatientNames(collectionReference);
+
         FloatingActionButton fab;
         fab = (FloatingActionButton) findViewById(R.id.floatingActionButtonAllPatients);
         fab.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
-                startActivity(new Intent(AllPatients.this, AddPatient.class));          //MAGIC CODE
+                Intent intent = new Intent(AllPatients.this, AddPatient.class);
+                intent.putExtra("CategoryName", CategoryName);
+                startActivity(intent);
             }
         });
 
