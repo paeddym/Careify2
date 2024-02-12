@@ -30,15 +30,17 @@ public class AddPatient extends AppCompatActivity {
     private static final String KEY_ROOM = "Raum";
     private static final String KEY_DIAGNOSIS = "Diagnose";
     private static final String KEY_MEDICATION = "Medikation";
+
     private String CategoryName;
     private String FacilityName;
+
     private EditText editTextName;
     private EditText editTextAge;
     private EditText editTextRoom;
     private EditText editTextDiagnosis;
     private EditText editTextMedication;
 
-    private FirebaseFirestore db = FirebaseFirestore.getInstance();
+    final FirebaseFirestore db = FirebaseFirestore.getInstance();
 
 
     @Override
@@ -62,10 +64,10 @@ public class AddPatient extends AppCompatActivity {
         editTextRoom = findViewById(R.id.addPatientRoom);
         editTextDiagnosis = findViewById(R.id.addPatientDiagnosis);
         editTextMedication = findViewById(R.id.addPatientMedication);
+
         imageView=findViewById(R.id.addImgPatient);
         imageView.setImageResource(R.drawable.passant);
     }
-
     public void savePatient (View v){
         String name = editTextName.getText().toString();
         String age = editTextAge.getText().toString();
@@ -74,33 +76,32 @@ public class AddPatient extends AppCompatActivity {
         String medication = editTextMedication.getText().toString();
 
         if(name.equals("")) {
-            Toast.makeText(this, "Please enter the Patient's name!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Please enter the patient's name!", Toast.LENGTH_SHORT).show();
         } else {
-        Map<String, Object> patient = new HashMap<>();
-        patient.put(KEY_NAME, name);
-        patient.put(KEY_AGE, age);
-        patient.put(KEY_ROOM, room);
-        patient.put(KEY_DIAGNOSIS, diagnosis);
-        patient.put(KEY_MEDICATION, medication);
+            Map<String, Object> patient = new HashMap<>();
+            patient.put(KEY_NAME, name);
+            patient.put(KEY_AGE, age);
+            patient.put(KEY_ROOM, room);
+            patient.put(KEY_DIAGNOSIS, diagnosis);
+            patient.put(KEY_MEDICATION, medication);
 
-        db.collection("Facility").document(FacilityName)
-                .collection("Category").document(CategoryName)
-                .collection("Patient").document(name).set(patient)
-                .addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void unused) {
-                        Toast.makeText(AddPatient.this, "Success!", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(AddPatient.this, AllPatients.class);
-                        intent.putExtra("CategoryName", CategoryName);
-                        intent.putExtra("FacilityName", FacilityName);
-                        startActivity(intent);
-                    }
-                }).addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(AddPatient.this, "Failure!", Toast.LENGTH_SHORT).show();
-                    }
-                });
+            db.collection("Facility").document(FacilityName)
+                    .collection("Category").document(CategoryName)
+                    .collection("Patient").document(name).set(patient)
+                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void unused) {
+                            Intent intent = new Intent(AddPatient.this, AllPatients.class);
+                            intent.putExtra("CategoryName", CategoryName);
+                            intent.putExtra("FacilityName", FacilityName);
+                            startActivity(intent);
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(AddPatient.this, "Failed to connect to Database!", Toast.LENGTH_SHORT).show();
+                        }
+                    });
         }
     }
     @Override

@@ -23,7 +23,7 @@ public class AddCategory extends AppCompatActivity {
     private static final String KEY_NAME = "Name";
     private EditText editTextName;
     private String facilityName;
-    private FirebaseFirestore db = FirebaseFirestore.getInstance();
+    final FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

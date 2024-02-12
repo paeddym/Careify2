@@ -19,7 +19,7 @@ public class Login extends AppCompatActivity {
     private static final String KEY_PASSWORD = "Passwort";
     private EditText editTextName;
     private EditText editTextPassword;
-    private FirebaseFirestore db = FirebaseFirestore.getInstance();
+    final FirebaseFirestore db = FirebaseFirestore.getInstance();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
