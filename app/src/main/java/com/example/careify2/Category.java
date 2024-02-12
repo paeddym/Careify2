@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -162,5 +163,10 @@ public class Category extends AppCompatActivity implements RecyclerViewInterface
         intent.putExtra("CategoryName", categoryModels.get(position).getBereichName());
         intent.putExtra("FacilityName", facilityName);
         startActivity(intent);
+    }
+
+    @Override
+    public void onItemLongClick(int position) {
+
     }
 }

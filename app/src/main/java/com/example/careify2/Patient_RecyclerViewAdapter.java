@@ -64,6 +64,20 @@ public class Patient_RecyclerViewAdapter extends RecyclerView.Adapter<Patient_Re
                     }
                 }
             });
+
+            itemView.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View v) {
+                    if(recyclerViewInterface != null){
+                        int pos = getAdapterPosition();
+
+                        if (pos != RecyclerView.NO_POSITION){
+                            recyclerViewInterface.onItemLongClick(pos);
+                        }
+                    }
+                    return false;
+                }
+            });
         }
     }
 }

@@ -174,4 +174,9 @@ public class AllPatients extends AppCompatActivity implements RecyclerViewInterf
         intent.putExtra("FacilityName", FacilityName);
         startActivity(intent);
     }
+
+    @Override
+    public void onItemLongClick(int position) {
+
+    }
 }
