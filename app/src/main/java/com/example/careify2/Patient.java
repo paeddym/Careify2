@@ -18,7 +18,6 @@ import android.widget.Toast;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -190,37 +189,23 @@ public class Patient extends AppCompatActivity {
                             db.collection("Facility").document(FacilityName)
                                     .collection("Category").document(CategoryName)
                                     .collection("Patient").document(PatientName).delete()
-                                    .addOnSuccessListener(new OnSuccessListener<Void>() {
-                                        @Override
-                                        public void onSuccess(Void unused) {
-                                            Toast.makeText(Patient.this, "Old Patient removed!", Toast.LENGTH_SHORT).show();
-                                        }
-                                    })
                                     .addOnFailureListener(new OnFailureListener() {
                                         @Override
                                         public void onFailure(@NonNull Exception e) {
-
+                                            Toast.makeText(Patient.this, "Failed to connect to database!", Toast.LENGTH_SHORT).show();
                                         }
                                     });
 
                             db.collection("Facility").document(FacilityName)
                                     .collection("Category").document(CategoryName)
                                     .collection("Patient").document(newName).set(patient)
-                                    .addOnSuccessListener(new OnSuccessListener<Void>() {
-                                        @Override
-                                        public void onSuccess(Void unused) {
-                                            Toast.makeText(Patient.this, "Success!", Toast.LENGTH_SHORT).show();
-                                        }
-                                    }).addOnFailureListener(new OnFailureListener() {
+                                    .addOnFailureListener(new OnFailureListener() {
                                         @Override
                                         public void onFailure(@NonNull Exception e) {
-                                            Toast.makeText(Patient.this, "Failure!", Toast.LENGTH_SHORT).show();
+                                            Toast.makeText(Patient.this, "Failed to connect to database!", Toast.LENGTH_SHORT).show();
                                         }
                                     });
-                            Intent intent = new Intent(Patient.this, AllPatients.class);
-                            intent.putExtra("CategoryName", CategoryName);
-                            intent.putExtra("FacilityName", FacilityName);
-                            startActivity(intent);
+                            returnToAllPatients();
                         }
                     }})
                 .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
@@ -228,11 +213,13 @@ public class Patient extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int which) {
                         fabEdit.setVisibility(View.VISIBLE);
                         fabSave.setVisibility(View.GONE);
+
                         currentName.setVisibility(View.VISIBLE);
                         currentAge.setVisibility(View.VISIBLE);
                         currentRoom.setVisibility(View.VISIBLE);
                         currentDiagnosis.setVisibility(View.VISIBLE);
                         currentMedication.setVisibility(View.VISIBLE);
+
                         editTextName.setVisibility(View.GONE);
                         editTextAge.setVisibility(View.GONE);
                         editTextRoom.setVisibility(View.GONE);
@@ -273,18 +260,18 @@ public class Patient extends AppCompatActivity {
                         .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
 
                             public void onClick(DialogInterface dialog, int whichButton) {
-                                returnToCategory();
+                                returnToAllPatients();
                             }
                         })
                         .setNegativeButton(android.R.string.no, null).show();
             } else {
-                returnToCategory();
+                returnToAllPatients();
             }
         }
         return super.onOptionsItemSelected(item);
     }
 
-    public void returnToCategory(){
+    public void returnToAllPatients(){
         Intent intent = new Intent(Patient.this, AllPatients.class);
         intent.putExtra("CategoryName", CategoryName);
         intent.putExtra("FacilityName", FacilityName);
