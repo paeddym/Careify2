@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Careify2</string>
+    <string name="to_be_implemented">To be implemented!</string>
+    <string name="testButton">Testbutton</string>
+
+    <string name="login">Kayıtla</string>
+    <string name="facility">Şirket</string>
+    <string name="password">Şifre</string>
+    <string name="loginMessage">Giriş yapmanız icin, bize bu E-mail adresine basvuru yapınız:\n\nxileff.muster@gmail.com</string>
+
+    <string name="name">Ad</string>
+    <string name="age">Yaş</string>
+    <string name="room">Oda</string>
+    <string name="diagnosis">Diagnos</string>
+    <string name="medication">Ilaclar</string>
+    <string name="category">Bölumler</string>
+    <string name="patients">Müşteriler</string>
+    <string name="patient">Müşteri</string>
+
+    <string name="add_category">Bölümü kayıtla</string>
+    <string name="add_patient">Müşteriyi kayıtla</string>
+    <string name="add">Kayıtla</string>
+
+    <string name="enter_facility">Şirketı belirt</string>
+    <string name="enter_password">Şifreyı belirt</string>
+    <string name="enter_category">Yeni Sirektı belirt</string>
+
+    <string name="enter_name">Adı belirt</string>
+    <string name="enter_age">Yaşı belirt</string>
+    <string name="enter_room">Odayı belirt</string>
+    <string name="enter_medication">Ilacı belirt</string>
+    <string name="enter_diagnosis">Diagnosu belirt</string>
+
+</resources>

@@ -3,32 +3,32 @@
     <string name="to_be_implemented">To be implemented!</string>
     <string name="testButton">Testbutton</string>
 
-    <string name="login">Anmelden</string>
-    <string name="facility">Einrichtung</string>
-    <string name="password">Passwort</string>
-    <string name="loginMessage">Um Zugangsdaten zu erhalten, buchen Sie für Ihre Einrichtung ein entsprechendes Abonnement unter:\n\nxileff.muster@gmail.com</string>
+    <string name="login">Login</string>
+    <string name="facility">Facility</string>
+    <string name="password">Password</string>
+    <string name="loginMessage">To get login cridential, please contact us at :\n\nxileff.muster@gmail.com</string>
 
     <string name="name">Name</string>
-    <string name="age">Alter</string>
-    <string name="room">Raum</string>
-    <string name="diagnosis">Diagnose</string>
-    <string name="medication">Medikamente</string>
-    <string name="category">Bereiche</string>
-    <string name="patients">Patienten</string>
+    <string name="age">Age</string>
+    <string name="room">Room</string>
+    <string name="diagnosis">Diagnosis</string>
+    <string name="medication">Medication</string>
+    <string name="category">Area</string>
+    <string name="patients">Patients</string>
     <string name="patient">Patient</string>
 
-    <string name="add_category">Bereich hinzufügen</string>
-    <string name="add_patient">Patient hinzufügen</string>
-    <string name="add">Hinzufügen</string>
+    <string name="add_category">Add area</string>
+    <string name="add_patient">Add patient</string>
+    <string name="add">Add</string>
 
-    <string name="enter_facility">Einrichtung eingeben</string>
-    <string name="enter_password">Passwort eingeben</string>
-    <string name="enter_category">Neuen Bereich eingeben</string>
+    <string name="enter_facility">Enter facility</string>
+    <string name="enter_password">Enter password</string>
+    <string name="enter_category">Enter new area</string>
 
-    <string name="enter_name">Name eingeben</string>
-    <string name="enter_age">Alter eingeben</string>
-    <string name="enter_room">Raum eingeben</string>
-    <string name="enter_medication">Medikamente eingeben</string>
-    <string name="enter_diagnosis">Diagnose eingeben</string>
+    <string name="enter_name">Enter name</string>
+    <string name="enter_age">Enter age</string>
+    <string name="enter_room">Enter room</string>
+    <string name="enter_medication">Enter medicine</string>
+    <string name="enter_diagnosis">Enter diagnosis</string>
 
 </resources>
