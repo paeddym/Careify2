@@ -24,6 +24,7 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Category extends AppCompatActivity implements RecyclerViewInterface {
 
@@ -70,19 +71,23 @@ public class Category extends AppCompatActivity implements RecyclerViewInterface
                 .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                     @Override
                     public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
-                        int i = 0;
+
+                        List<String> categoryList = new ArrayList<String>();
+                        String[] allCategories;
+
                         for(QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots){
-                            i++;
-                        }
-                        allCategories = new String[i];
-                        i = 0;
-                        for(QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots){
-                            allCategories[i] = documentSnapshot.getString(KEY_NAME);
-                            i++;
+                            categoryList.add(documentSnapshot.getString(KEY_NAME));
                         }
 
+                        allCategories = new String[categoryList.size()];
+                        categoryList.toArray(allCategories);
+
                         RecyclerView recyclerView = findViewById(R.id.Bereiche);
-                        setCategoryModels(allCategories);
+
+                        for (int i=0; i<allCategories.length; i++){
+                            categoryModels.add(new CategoryModel(allCategories[i]));
+                        }
+
                         adapter = new Category_RecyclerViewAdapter(Category.this, categoryModels, Category.this);
                         recyclerView.setAdapter(adapter);
                         recyclerView.setLayoutManager(new LinearLayoutManager(Category.this));
@@ -94,13 +99,6 @@ public class Category extends AppCompatActivity implements RecyclerViewInterface
                         Toast.makeText(Category.this, "Failed to load Categories!", Toast.LENGTH_SHORT).show();
                     }
                 });
-    }
-
-    private void setCategoryModels(String[] categories){
-
-        for (int i=0; i<categories.length; i++){
-            categoryModels.add(new CategoryModel(categories[i]));
-        }
     }
 
     @Override
