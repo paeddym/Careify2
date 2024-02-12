@@ -21,10 +21,10 @@
     <string name="notRegisterd">"Şirket bulunmadi!"</string>
     <string name="noConnection">"Veritabanına bağlantı yok!"</string>
     <string name="enterCategory">"Lütfen yeni bölüm adını girin!"</string>
-    <string name="enterPatient">""Lütfen müşterinin adını girin!"</string>
-
-    <string name="loadedCategory">"Bölümler Yüklendi!"</string>
+    <string name="enterPatient">"Lütfen müşterinin adını girin!"</string>
     <string name="categoryRemoved">"Bölüm silindi!"</string>
+    <string name="patientRemoved">"Müşteri silindi!"</string>
+
 
     <string name="name">Ad</string>
     <string name="age">Yaş</string>
