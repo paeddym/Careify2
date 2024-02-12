@@ -128,7 +128,7 @@ public class Patient extends AppCompatActivity {
                                     editTextMedication.setText(databaseMedication, TextView.BufferType.EDITABLE);
 
                                 } else {
-                                    Toast.makeText(Patient.this, "Patient doesn't exist!", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(Patient.this, R.string.patientDoesntExist, Toast.LENGTH_SHORT).show();
 
                                 }
                             }
@@ -136,7 +136,7 @@ public class Patient extends AppCompatActivity {
                                 .addOnFailureListener(new OnFailureListener() {
                                     @Override
                                     public void onFailure(@NonNull Exception e) {
-                                        Toast.makeText(Patient.this, "Database could not be reached!", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(Patient.this, R.string.noConnection, Toast.LENGTH_SHORT).show();
                                     }
                                 });
     }

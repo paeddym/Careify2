@@ -25,6 +25,7 @@
     <string name="categoryRemoved">"Category removed!"</string>
     <string name="patientRemoved">"Patient removed!"</string>
 
+    <string name="patientDoesntExist">"Patient doesn't exist!"</string>
 
     <string name="name">Név</string>
     <string name="age">Kor</string>
@@ -50,5 +51,4 @@
     <string name="enter_room">Szoba megadása</string>
     <string name="enter_medication">Gyógyszerek megadása</string>
     <string name="enter_diagnosis">Diagnózis megadása</string>
-
 </resources>

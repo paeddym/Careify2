@@ -23,6 +23,7 @@
     <string name="enterPatient">"Please enter the patient's name!"</string>
     <string name="categoryRemoved">"Category removed!"</string>
     <string name="patientRemoved">"Patient removed!"</string>
+    <string name="patientDoesntExist">"Patient doesn't exist!"</string>
 
     <string name="name">Name</string>
     <string name="age">Age</string>
@@ -48,5 +49,4 @@
     <string name="enter_room">Enter room</string>
     <string name="enter_medication">Enter medicine</string>
     <string name="enter_diagnosis">Enter diagnosis</string>
-
 </resources>

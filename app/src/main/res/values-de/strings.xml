@@ -24,6 +24,7 @@
     <string name="enterPatient">"Bitte Namen des Patienten angeben!"</string>
     <string name="categoryRemoved">"Bereich entfernt!"</string>
     <string name="patientRemoved">"Patient entfernt!"</string>
+    <string name="patientDoesntExist">"Patient existiert nicht!"</string>
 
     <string name="name">Name</string>
     <string name="age">Alter</string>
@@ -49,5 +50,4 @@
     <string name="enter_room">Raum eingeben</string>
     <string name="enter_medication">Medikamente eingeben</string>
     <string name="enter_diagnosis">Diagnose eingeben</string>
-
 </resources>

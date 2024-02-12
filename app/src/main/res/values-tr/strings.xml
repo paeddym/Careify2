@@ -24,7 +24,7 @@
     <string name="enterPatient">"Lütfen müşterinin adını girin!"</string>
     <string name="categoryRemoved">"Bölüm silindi!"</string>
     <string name="patientRemoved">"Müşteri silindi!"</string>
-
+    <string name="patientDoesntExist">"Müşteri mevcut değil!"</string>
 
     <string name="name">Ad</string>
     <string name="age">Yaş</string>
@@ -50,5 +50,4 @@
     <string name="enter_room">Odayı belirt</string>
     <string name="enter_medication">Ilacı belirt</string>
     <string name="enter_diagnosis">Diagnosu belirt</string>
-
 </resources>
