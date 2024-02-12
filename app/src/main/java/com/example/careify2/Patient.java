@@ -34,6 +34,11 @@ public class Patient extends AppCompatActivity {
     private static final String KEY_ROOM = "Raum";
     private static final String KEY_DIAGNOSIS = "Diagnose";
     private static final String KEY_MEDICATION = "Medikation";
+    private String name;
+    private String age;
+    private String room;
+    private String diagnosis;
+    private String medication;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private boolean inEditMode = false;
     private String PatientName;
@@ -102,11 +107,11 @@ public class Patient extends AppCompatActivity {
                             public void onSuccess(DocumentSnapshot documentSnapshot) {
                                 if(documentSnapshot.exists()){
 
-                                    String name = documentSnapshot.getString(KEY_NAME);
-                                    String age = documentSnapshot.getString(KEY_AGE);
-                                    String room = documentSnapshot.getString(KEY_ROOM);
-                                    String diagnosis = documentSnapshot.getString(KEY_DIAGNOSIS);
-                                    String medication = documentSnapshot.getString(KEY_MEDICATION);
+                                    name = documentSnapshot.getString(KEY_NAME);
+                                    age = documentSnapshot.getString(KEY_AGE);
+                                    room = documentSnapshot.getString(KEY_ROOM);
+                                    diagnosis = documentSnapshot.getString(KEY_DIAGNOSIS);
+                                    medication = documentSnapshot.getString(KEY_MEDICATION);
 
                                     currentName.setText(name);
                                     currentAge.setText(age);
@@ -253,7 +258,11 @@ public class Patient extends AppCompatActivity {
         int id = item.getItemId();
 
         if (id == android.R.id.home) {
-            if(inEditMode) {
+            if(inEditMode   || !name.equals(editTextName.getText().toString())
+                            || !age.equals(editTextAge.getText().toString())
+                            || !room.equals(editTextRoom.getText().toString())
+                            || !diagnosis.equals(editTextDiagnosis.getText().toString())
+                            || !medication.equals(editTextMedication.getText().toString())) {
                 new AlertDialog.Builder(this)
                         .setTitle(R.string.discard)
                         .setMessage(R.string.discardConfirm)
