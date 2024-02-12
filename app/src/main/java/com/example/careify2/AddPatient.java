@@ -11,6 +11,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -24,6 +25,8 @@ import java.util.Map;
 
 
 public class AddPatient extends AppCompatActivity {
+
+    ImageView imageView;
 
     private static final String KEY_NAME = "Name";
     private static final String KEY_AGE = "Alter";
@@ -62,6 +65,8 @@ public class AddPatient extends AppCompatActivity {
         editTextRoom = findViewById(R.id.addPatientRoom);
         editTextDiagnosis = findViewById(R.id.addPatientDiagnosis);
         editTextMedication = findViewById(R.id.addPatientMedication);
+        imageView=findViewById(R.id.addImgPatient);
+        imageView.setImageResource(R.drawable.passant);
     }
 
     public void savePatient (View v){

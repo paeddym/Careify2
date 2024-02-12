@@ -2,11 +2,13 @@ package com.example.careify2;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,6 +20,8 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 public class Patient extends AppCompatActivity {
+
+    ImageView imageView;
 
     private static final String KEY_NAME = "Name";
     private static final String KEY_AGE = "Alter";
@@ -45,6 +49,8 @@ public class Patient extends AppCompatActivity {
         PatientName = getIntent().getStringExtra("PatientName");
         CategoryName = getIntent().getStringExtra("CategoryName");
         FacilityName = getIntent().getStringExtra("FacilityName");
+        imageView=findViewById(R.id.imgPatient);
+        imageView.setImageResource(R.drawable.passant);
 
         if (getSupportActionBar() != null){
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
