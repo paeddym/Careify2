@@ -14,8 +14,8 @@
     <string name="loginMessage">Giriş yapmanız icin, bize bu E-mail adresine basvuru yapınız:\n\nxileff.muster@gmail.com</string>
     <string name="logout">Oturum kapatmak</string>
     <string name="logoutConfirm">Oturumu kapatmak istiyormusunuz?</string>
-    <string name="edit">Edit</string>
-    <string name="editConfirm">Are you sure you want to save your changes?</string>
+    <string name="edit">Kayit</string>
+    <string name="editConfirm">Değişimı kaydetmek istiyormusunuz?</string>
 
     <string name="name">Ad</string>
     <string name="age">Yaş</string>
@@ -29,8 +29,8 @@
     <string name="add_category">Bölümü kayıtla</string>
     <string name="add_patient">Müşteriyi kayıtla</string>
     <string name="add">Kayıtla</string>
-    <string name="discard">Verwerfen</string>
-    <string name="discardConfirm">Wollen Sie Ihre Änderungen verwerfen?</string>
+    <string name="discard">Reddetmek</string>
+    <string name="discardConfirm">Değişimı reddetmek istiyormusunuz?</string>
 
     <string name="enter_facility">Şirketı belirt</string>
     <string name="enter_password">Şifreyı belirt</string>
