@@ -3,9 +3,9 @@
     <string name="app_name">Careify2</string>
     <string name="to_be_implemented">To be implemented!</string>
     <string name="testButton">Testbutton</string>
-    <string name="delete">Delete</string>
-    <string name="deletePatientConfirm">Do you really want to delete this patient?</string>
-    <string name="deleteCategoryConfirm">Do you really want to delete this area?</string>
+    <string name="delete">Sil</string>
+    <string name="deletePatientConfirm">Müşteriyi silmek istiyormusunuz?</string>
+    <string name="deleteCategoryConfirm">Bölümü silmek istiyormusunuz?</string>
 
     <string name="login">Kayıtla</string>
     <string name="facility">Şirket</string>

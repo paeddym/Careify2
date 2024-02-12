@@ -3,9 +3,6 @@
     <string name="app_name">Careify2</string>
     <string name="to_be_implemented">To be implemented!</string>
     <string name="testButton">Testbutton</string>
-    <string name="delete">Delete</string>
-    <string name="deletePatientConfirm">Do you really want to delete this patient?</string>
-    <string name="deleteCategoryConfirm">Do you really want to delete this area?</string>
 
     <string name="login">Anmelden</string>
     <string name="facility">Einrichtung</string>
