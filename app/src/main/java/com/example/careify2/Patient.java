@@ -230,6 +230,12 @@ public class Patient extends AppCompatActivity {
                         editTextRoom.setVisibility(View.GONE);
                         editTextDiagnosis.setVisibility(View.GONE);
                         editTextMedication.setVisibility(View.GONE);
+
+                        currentName.setText(editTextName.getText().toString());
+                        currentAge.setText(editTextAge.getText().toString());
+                        currentRoom.setText(editTextRoom.getText().toString());
+                        currentDiagnosis.setText(editTextDiagnosis.getText().toString());
+                        currentMedication.setText(editTextMedication.getText().toString());
                     }
                 }).show();
 
