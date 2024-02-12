@@ -38,7 +38,7 @@ public class Category extends AppCompatActivity implements RecyclerViewInterface
             .collection("Category");
 
     private String[] allCategories;
-
+    private String facilityName;
     Category_RecyclerViewAdapter adapter;
 
     @Override
@@ -47,13 +47,16 @@ public class Category extends AppCompatActivity implements RecyclerViewInterface
         setContentView(R.layout.activity_category);
         setSupportActionBar(findViewById(R.id.toolbarCategory));
 
+        facilityName = getIntent().getStringExtra("FacilityName");
         loadCategoryNames(collectionReference);
 
         FloatingActionButton fab;
         fab = (FloatingActionButton) findViewById(R.id.floatingActionButtonCategory);
         fab.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
-                startActivity(new Intent(Category.this, AddCategory.class));          //MAGIC CODE
+                Intent intent = new Intent(Category.this, AddCategory.class);
+                intent.putExtra("FacilityName", facilityName);
+                startActivity(intent);
             }
         });
 
@@ -163,6 +166,7 @@ public class Category extends AppCompatActivity implements RecyclerViewInterface
     public void onCardClick(int position) {
         Intent intent = new Intent(Category.this, AllPatients.class);
         intent.putExtra("CategoryName", categoryModels.get(position).getBereichName());
+        intent.putExtra("FacilityName", facilityName);
         startActivity(intent);
     }
 }

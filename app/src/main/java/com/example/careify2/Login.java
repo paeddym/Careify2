@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -56,7 +57,7 @@ public class Login extends AppCompatActivity {
                         @Override
                         public void onSuccess(DocumentSnapshot documentSnapshot) {
                             if (documentSnapshot.exists()) {
-                                if (password.equals(documentSnapshot.getString(KEY_PASSWORD))) {
+                                if (password.equals(documentSnapshot.getString(KEY_PASSWORD))) {                //This line will put me in jail
                                     Intent intent = new Intent(Login.this, Category.class);
                                     intent.putExtra("FacilityName", name);
                                     startActivity(intent);
@@ -71,7 +72,6 @@ public class Login extends AppCompatActivity {
                     .addOnFailureListener(new OnFailureListener() {
                         @Override
                         public void onFailure(@NonNull Exception e) {
-
                         }
                     });
         }
