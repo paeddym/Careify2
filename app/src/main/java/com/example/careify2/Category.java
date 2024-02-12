@@ -1,10 +1,12 @@
 package com.example.careify2;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -167,24 +169,32 @@ public class Category extends AppCompatActivity implements RecyclerViewInterface
 
     @Override
     public void onItemLongClick(int position) {
-        String itemToDelete = categoryModels.get(position).getBereichName();
-        db.collection("Facility").document(facilityName)
-                .collection("Category").document(itemToDelete).delete()
-                .addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void unused) {
-                        categoryModels.remove(position);
-                        adapter.notifyItemRemoved(position);
-                        Toast.makeText(Category.this, "Category removed!", Toast.LENGTH_SHORT).show();
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
+        new AlertDialog.Builder(this)
+                .setTitle(R.string.delete)
+                .setMessage(R.string.deleteCategoryConfirm)
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
 
-                    }
-                });
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                        String itemToDelete = categoryModels.get(position).getBereichName();
+                        db.collection("Facility").document(facilityName)
+                                .collection("Category").document(itemToDelete).delete()
+                                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                    @Override
+                                    public void onSuccess(Void unused) {
+                                        categoryModels.remove(position);
+                                        adapter.notifyItemRemoved(position);
+                                        Toast.makeText(Category.this, "Category removed!", Toast.LENGTH_SHORT).show();
+                                    }
+                                })
+                                .addOnFailureListener(new OnFailureListener() {
+                                    @Override
+                                    public void onFailure(@NonNull Exception e) {
 
+                                    }
+                                });
+                    }})
+                .setNegativeButton(android.R.string.no, null).show();
     }
 
 }
