@@ -70,8 +70,8 @@
 
     <TextView
         android:id="@+id/loginMessage"
-        android:layout_width="361dp"
-        android:layout_height="88dp"
+        android:layout_width="362dp"
+        android:layout_height="89dp"
         android:layout_marginBottom="16dp"
         android:text="@string/loginMessage"
         android:textAlignment="center"
