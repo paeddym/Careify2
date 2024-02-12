@@ -31,8 +31,6 @@ public class Category extends AppCompatActivity implements RecyclerViewInterface
     ArrayList<CategoryModel> categoryModels = new ArrayList<>();
 
     private static final String KEY_NAME = "Name";
-
-    private String[] allCategories;
     private String facilityName;
     Category_RecyclerViewAdapter adapter;
     final FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -72,7 +70,7 @@ public class Category extends AppCompatActivity implements RecyclerViewInterface
                     @Override
                     public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
 
-                        List<String> categoryList = new ArrayList<String>();
+                        List<String> categoryList = new ArrayList<>();
                         String[] allCategories;
 
                         for(QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots){
@@ -117,7 +115,7 @@ public class Category extends AppCompatActivity implements RecyclerViewInterface
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                filter(newText.toString());
+                filter(newText);
 
                 return true;
             }

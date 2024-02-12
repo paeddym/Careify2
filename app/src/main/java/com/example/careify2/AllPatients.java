@@ -19,7 +19,6 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
-import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
@@ -28,11 +27,10 @@ import java.util.ArrayList;
 public class AllPatients extends AppCompatActivity implements RecyclerViewInterface{
 
     ArrayList<PatientModel> patientModels = new ArrayList<>();
-    private FirebaseFirestore db = FirebaseFirestore.getInstance();
+    final FirebaseFirestore db = FirebaseFirestore.getInstance();
     private static final String KEY_NAME = "Name";
     private String CategoryName;
     private String FacilityName;
-    private CollectionReference collectionReference;
 
     private String[] allPatients;
 
@@ -47,9 +45,7 @@ public class AllPatients extends AppCompatActivity implements RecyclerViewInterf
         CategoryName = getIntent().getStringExtra("CategoryName");
         FacilityName = getIntent().getStringExtra("FacilityName");
 
-        collectionReference = db.collection("Facility").document(FacilityName)
-                .collection("Category").document(CategoryName).collection("Patient");
-        loadPatientNames(collectionReference);
+        loadPatientNames();
 
         FloatingActionButton fab;
         fab = (FloatingActionButton) findViewById(R.id.floatingActionButtonAllPatients);
@@ -70,8 +66,10 @@ public class AllPatients extends AppCompatActivity implements RecyclerViewInterf
         getSupportActionBar().setTitle(CategoryName);
     }
 
-    private void loadPatientNames(CollectionReference collectionReference){
-        collectionReference.get()
+    private void loadPatientNames(){
+        db.collection("Facility").document(FacilityName)
+                .collection("Category").document(CategoryName)
+                .collection("Patient").get()
                 .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                     @Override
                     public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
@@ -124,7 +122,7 @@ public class AllPatients extends AppCompatActivity implements RecyclerViewInterf
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                filter(newText.toString());
+                filter(newText);
 
                 return true;
             }
