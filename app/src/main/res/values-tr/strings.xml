@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Careify</string>
+    <string name="app_name">Careify2</string>
     <string name="to_be_implemented">To be implemented!</string>
     <string name="testButton">Testbutton</string>
     <string name="delete">Sil</string>
@@ -16,14 +16,14 @@
     <string name="edit">Kayit</string>
     <string name="editConfirm">Değişimı kaydetmek istiyormusunuz?</string>
 
-    <string name="pleaseEnter">"Lütfen Şirketin adını ve kileti yazın"</string>
-    <string name="passwordIncorrect">"Kilet yanlış!"</string>
-    <string name="notRegisterd">"Şirket bulunmadi!"</string>
-    <string name="noConnection">"Veritabanına bağlantı yok!"</string>
-    <string name="enterCategory">"Lütfen yeni bölüm adını girin!"</string>
-    <string name="enterPatient">"Lütfen müşterinin adını girin!"</string>
-    <string name="categoryRemoved">"Bölüm silindi!"</string>
-    <string name="patientRemoved">"Müşteri silindi!"</string>
+    <string name="pleaseEnter">Lütfen Şirketin adını ve kileti yazın</string>
+    <string name="passwordIncorrect">Kilet yanlış!</string>
+    <string name="notRegisterd">Şirket bulunmadi!</string>
+    <string name="noConnection">Veritabanına bağlantı yok!</string>
+    <string name="enterCategory">Lütfen yeni bölüm adını girin!</string>
+    <string name="enterPatient">Lütfen müşterinin adını girin!</string>
+    <string name="categoryRemoved">Bölüm silindi!</string>
+    <string name="patientRemoved">Müşteri silindi!</string>
 
 
     <string name="name">Ad</string>

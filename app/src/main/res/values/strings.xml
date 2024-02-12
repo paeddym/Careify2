@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Careify</string>
+    <string name="app_name">Careify2</string>
     <string name="to_be_implemented">To be implemented!</string>
     <string name="testButton">Testbutton</string>
     <string name="delete">Delete</string>
@@ -15,14 +15,14 @@
     <string name="edit">Edit</string>
     <string name="editConfirm">Are you sure you want to save your changes?</string>
 
-    <string name="pleaseEnter">"Please enter a facility and password"</string>
-    <string name="passwordIncorrect">"Password incorrect!"</string>
-    <string name="notRegisterd">"Facility is not registered!"</string>
-    <string name="noConnection">"No connection to Database!"</string>
-    <string name="enterCategory">"Please enter the new category's name!"</string>
-    <string name="enterPatient">"Please enter the patient's name!"</string>
-    <string name="categoryRemoved">"Category removed!"</string>
-    <string name="patientRemoved">"Patient removed!"</string>
+    <string name="pleaseEnter">Please enter a facility and password</string>
+    <string name="passwordIncorrect">Password incorrect!</string>
+    <string name="notRegisterd">Facility is not registered!</string>
+    <string name="noConnection">No connection to Database!</string>
+    <string name="enterCategory">Please enter the new category's name!</string>
+    <string name="enterPatient">Please enter the patient's name!</string>
+    <string name="categoryRemoved">Category removed!</string>
+    <string name="patientRemoved">Patient removed!</string>
 
     <string name="name">Name</string>
     <string name="age">Age</string>

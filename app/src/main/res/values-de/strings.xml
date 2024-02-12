@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Careify</string>
+    <string name="app_name">Careify2</string>
     <string name="to_be_implemented">To be implemented!</string>
     <string name="testButton">Testbutton</string>
     <string name="delete">Löschen</string>
@@ -16,14 +16,14 @@
     <string name="edit">Bearbeiten</string>
     <string name="editConfirm">Wollen Sie Ihre Änderungen übernehmen?</string>
 
-    <string name="pleaseEnter">"Bitte Einrichtung und Passwort angeben"</string>
-    <string name="passwordIncorrect">"Passwort falsch!"</string>
-    <string name="notRegisterd">"Einrichtung nicht registriert!"</string>
-    <string name="noConnection">"Keine Verbindung zur Datenbank!"</string>
-    <string name="enterCategory">"Bitte Namen des Bereichs angeben"</string>
-    <string name="enterPatient">"Bitte Namen des Patienten angeben!"</string>
-    <string name="categoryRemoved">"Bereich entfernt!"</string>
-    <string name="patientRemoved">"Patient entfernt!"</string>
+    <string name="pleaseEnter">Bitte Einrichtung und Passwort angeben</string>
+    <string name="passwordIncorrect">Passwort falsch!</string>
+    <string name="notRegisterd">Einrichtung nicht registriert!</string>
+    <string name="noConnection">Keine Verbindung zur Datenbank!</string>
+    <string name="enterCategory">Bitte Namen des Bereichs angeben</string>
+    <string name="enterPatient">Bitte Namen des Patienten angeben!</string>
+    <string name="categoryRemoved">Bereich entfernt!</string>
+    <string name="patientRemoved">Patient entfernt!</string>
 
     <string name="name">Name</string>
     <string name="age">Alter</string>
