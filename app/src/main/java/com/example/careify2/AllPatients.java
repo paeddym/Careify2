@@ -177,6 +177,24 @@ public class AllPatients extends AppCompatActivity implements RecyclerViewInterf
 
     @Override
     public void onItemLongClick(int position) {
-
+        String itemToDelete = patientModels.get(position).PatientName;
+        db.collection("Facility").document(FacilityName)
+                .collection("Category").document(CategoryName)
+                .collection("Patient").document(itemToDelete).delete()
+                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void unused) {
+                                patientModels.remove(position);
+                                adapter.notifyItemRemoved(position);
+                                Toast.makeText(AllPatients.this, "Patient removed!", Toast.LENGTH_SHORT).show();
+                            }
+                        })
+                                .addOnFailureListener(new OnFailureListener() {
+                                    @Override
+                                    public void onFailure(@NonNull Exception e) {
+                                        
+                                    }
+                                });
+        
     }
 }
